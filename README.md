@@ -15,6 +15,10 @@ $ yarn run dev
 $ yarn run build
 $ yarn start
 
+# serve json database
+$ cd json-server
+$ json-server --watch db.json
+
 # generate static project
 $ yarn run generate
 ```
