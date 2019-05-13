@@ -1,8 +1,8 @@
 {
   "name": "nuxt-js",
   "version": "1.0.0",
-  "description": "My transcendent Nuxt.js project",
-  "author": "Azaryia",
+  "description": "Rainbow Unicorn My transcendent Nuxt.js project",
+  "author": "Azaryia and Soggard",
   "private": true,
   "scripts": {
     "dev": "nuxt",

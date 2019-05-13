@@ -24,3 +24,7 @@ $ yarn run generate
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+
+- Json-serve pour l'api
+- create un repo en groupe
+  entity: multiple field 'CRUD en ajax'

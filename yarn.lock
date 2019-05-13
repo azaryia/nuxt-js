@@ -5079,6 +5079,10 @@ repeat-string@^1.6.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/repeat-string/-/repeat-string-1.6.1.tgz#8dcae470e1c88abc2d600fff4a776286da75e637"
 
+require-dir@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/require-dir/-/require-dir-1.2.0.tgz#0d443b75e96012d3ca749cf19f529a789ae74817"
+
 require-from-string@^2.0.1:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/require-from-string/-/require-from-string-2.0.2.tgz#89a7fdd938261267318eafe14f9c32e598c36909"
