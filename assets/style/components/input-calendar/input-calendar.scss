@@ -1,0 +1,22 @@
+// ==================================================================
+// COMPONENT
+// input-calendar
+//   -max-width-none
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+.input-calendar {
+  border: 0.1rem solid var(--color-border);
+  border-radius: var(--border-radius-default);
+  background-color: var(--color-default-reverse);
+  padding: 1.5rem 1rem;
+  max-width: 35rem;
+
+  &.-max-width-none {
+    max-width: none;
+  }
+}

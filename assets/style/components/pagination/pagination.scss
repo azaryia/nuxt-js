@@ -1,0 +1,25 @@
+// ==================================================================
+// COMPONENT
+// pagination
+//   __ellipsis
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+.pagination {
+  display: flex;
+  align-items: center;
+
+
+  &__ellipsis {
+    color: var(--color-default-light);
+    font: {
+      size: var(--font-size-default);
+      weight: var(--font-weight-bold);
+    }
+    padding: 0 1.2rem;
+  }
+}

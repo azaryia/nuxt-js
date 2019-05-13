@@ -1,0 +1,135 @@
+// ==================================================================
+// COMPONENT
+// input-rte
+//   __footer
+//   a
+//   ql-toolbar
+//     ql-stroke
+//     ql-fill
+//     ql-picker
+//       ql-picker-label
+//     button
+//       ql-active
+//   ql-container
+//   ql-editor
+//   ql-tooltip
+//     input[type=text]
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+.input-rte {
+
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: var(--space-vt-small);
+  }
+
+
+  a {
+    color: var(--color-primary);
+  }
+
+
+  .ql-toolbar {
+    font-family: var(--font-primary);
+    border-color: var(--color-border);
+    border-top-left-radius: var(--border-radius-default);
+    border-top-right-radius: var(--border-radius-default);
+
+
+    .ql-stroke {
+      stroke: var(--color-meta);
+    }
+
+
+    .ql-fill {
+      fill: var(--color-meta);
+    }
+
+
+    .ql-picker {
+      font-size: var(--font-size-default);
+      color: var(--color-meta);
+
+
+      &-label {
+
+        &:hover {
+          color: var(--color-primary);
+
+
+          .ql-stroke {
+            stroke: var(--color-primary);
+          }
+        }
+      }
+    }
+
+
+    button {
+
+      &:hover {
+
+
+        .ql-stroke {
+          stroke: var(--color-primary);
+        }
+
+
+        .ql-fill {
+          fill: var(--color-primary);
+        }
+      }
+
+      &.ql-active {
+
+
+        .ql-stroke {
+          stroke: var(--color-primary);
+        }
+      }
+    }
+  }
+
+
+  .ql-container {
+    font: {
+      family: var(--font-primary);
+      size: var(--font-size-default);
+    }
+    border-color: var(--color-border);
+    border-bottom-left-radius: var(--border-radius-default);
+    border-bottom-right-radius: var(--border-radius-default);
+    background-color: var(--color-default-reverse);
+  }
+
+
+  .ql-editor {
+    @extend .rich-content;
+    @include paddingVtInScrollView();
+    min-height: 30rem;
+  }
+
+
+  .ql-tooltip {
+    color: var(--color-meta);
+    box-shadow: 0 0 1rem 0 var(--color-shadow);
+    border-color: var(--color-border);
+    border-radius: var(--border-radius-default);
+    background-color: var(--color-default-reverse);
+    padding: 1rem 1.5rem;
+
+
+    input[type=text] {
+      color: var(--color-default);
+      border-color: var(--color-border);
+      border-radius: var(--border-radius-default);
+    }
+  }
+}

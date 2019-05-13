@@ -1,0 +1,59 @@
+// ==================================================================
+// COMPONENT
+// placeholder
+//   __inner
+//   __main-content
+//
+// placeholder--thumbnail
+//   __inner
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+
+
+// placeholder
+// ==================================================================
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-hz-default);
+    max-width: 50rem;
+  }
+
+
+  &__main-content {
+    text-align: center;
+    padding: var(--space-vt-default) 0;
+  }
+}
+
+
+// placeholder--thumbnail
+// ==================================================================
+.placeholder--thumbnail {
+  @extend .placeholder;
+  @include extendChildren(placeholder, (inner));
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+
+  &__inner {
+    padding: 0;
+    max-width: none;
+  }
+}

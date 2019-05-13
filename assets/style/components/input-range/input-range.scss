@@ -1,0 +1,104 @@
+// ==================================================================
+// COMPONENT
+// input-range
+//   __input
+//   __graduations
+//     __item
+//   __bar
+//   __line
+//     __indicator
+//   __cursor
+//     __inner
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+.input-range {
+  $cursor-size: 1.8rem;
+  $line-height: 0.4rem;
+
+  position: relative;
+  min-height: var(--input-height-default);
+
+
+  &__input {
+    display: none;
+  }
+
+
+  &__graduations {
+    display: flex;
+    justify-content: space-between;
+    padding: calc(var(--input-height-default) * 0.5 + #{$cursor-size / 2} + 0.6rem) ($cursor-size / 2) 0;
+
+
+    &__item {
+      display: flex;
+      flex: 2;
+      justify-content: center;
+
+      &:first-child, &:last-child {
+        flex: 1;
+      }
+
+      &:first-child {
+        justify-content: flex-start;
+      }
+
+      &:last-child {
+        justify-content: flex-end;
+      }
+    }
+  }
+
+
+  &__bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 ($cursor-size / 2);
+    width: 100%;
+    height: var(--input-height-default);
+  }
+
+
+  &__line {
+    background-color: var(--color-background);
+    border-radius: ($line-height / 2);
+    position: absolute;
+    top: 50%;
+    left: ($cursor-size / 2);
+    overflow: hidden;
+    width: calc(100% - #{$cursor-size});
+    height: $line-height;
+    transform: translateY(-50%);
+
+
+    &__indicator {
+      background-color: var(--color-primary);
+      height: 100%;
+    }
+  }
+
+
+  &__cursor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: move;
+    width: var(--input-height-default);
+    height: 100%;
+
+
+    &__inner {
+      border: 0.3rem solid var(--color-primary);
+      border-radius: 50%;
+      background-color: var(--color-default-reverse);
+      width: $cursor-size;
+      height: $cursor-size;
+    }
+  }
+}

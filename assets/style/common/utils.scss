@@ -1,0 +1,398 @@
+// ==================================================================
+// UTILS
+// Common
+// Border
+// Background-color / Color / Border-color
+// Opacity
+// Font
+// Letter-spacing
+// Line-height
+// Text
+// Margin / Padding
+// Width / Height
+// Content width
+// Layout
+// Cursor
+// Misc
+// Accessibility
+// ==================================================================
+
+
+
+// ==================================================================
+// UTILS
+// ==================================================================
+
+
+// Common
+// ==================================================================
+$percentages: ();
+
+@for $i from 0 to 101
+{
+  @if $i % $percentages-step == 0 {
+    $percentages: map_merge($percentages, (#{$i} : $i));
+  }
+}
+
+$size-percentages: map_merge($percentages, $percentages-additional-values);
+
+
+// Border
+// ==================================================================
+@mixin generateBorderUtils($bp: null)
+{
+  .u-border#{if($bp, '-' + $bp, '')} {
+    border: var(--border-width-default) solid var(--color-border);
+  }
+
+  .u-border#{if($bp, '-' + $bp + '-', '-')}none {
+    border: none;
+  }
+
+  .u-border#{if($bp, '-' + $bp + '-', '-')}hz {
+    border: {
+      right: var(--border-width-default) solid var(--color-border);
+      left: var(--border-width-default) solid var(--color-border);
+    }
+  }
+
+  .u-border#{if($bp, '-' + $bp + '-', '-')}hz-none {
+    border: {
+      right: none;
+      left: none;
+    }
+  }
+
+  .u-border#{if($bp, '-' + $bp + '-', '-')}vt {
+    border: {
+      top: var(--border-width-default) solid var(--color-border);
+      bottom: var(--border-width-default) solid var(--color-border);
+    }
+  }
+
+  .u-border#{if($bp, '-' + $bp + '-', '-')}vt-none {
+    border: {
+      top: none;
+      bottom: none;
+    }
+  }
+
+  @each $pos in top, right, bottom, left {
+
+    .u-border#{if($bp, '-' + $bp + '-', '-') + $pos} {
+      border-#{$pos}: var(--border-width-default) solid var(--color-border);
+    }
+
+    .u-border#{if($bp, '-' + $bp + '-', '-') + $pos}-none {
+      border-#{$pos}: none;
+    }
+  }
+}
+
+@include generateBorderUtils();
+
+@each $bp in map_keys($screen-sizes)
+{
+  @include generateBorderUtils($bp)
+}
+
+@include generateResponsiveUtils(border-width, $border-widths);
+@include generateResponsiveUtils(border-radius, $border-radius);
+
+
+// Background-color / Color / Border-color
+// ==================================================================
+@include generateResponsiveUtils(background-color, $colors, true, color, bg-color);
+@include generateResponsiveUtils(color, $colors);
+@include generateResponsiveUtils(border-color, $colors, true, color);
+
+
+// Opacity
+// ==================================================================
+@each $v in $percentages
+{
+  .u-opacity-#{$v} {
+    opacity: #{$v / 100};
+  }
+}
+
+
+// Font
+// ==================================================================
+@include generateResponsiveUtils(font-family, $font-families);
+@include generateResponsiveUtils(font-size, $font-sizes);
+@include generateResponsiveUtils(font-style, (italic), false);
+@include generateResponsiveUtils(font-weight, $font-weights);
+
+@if map_get($style-vars, 'font-primary-padding-top') != 0
+{
+  .u-font-primary-fix-vertical-align {
+    padding-top: var(--font-primary-padding-top);
+  }
+}
+
+
+// Letter-spacing
+// ==================================================================
+@include generateResponsiveUtils(letter-spacing, $letter-spacings);
+
+
+// Line-height
+// ==================================================================
+@include generateResponsiveUtils(line-height, $line-heights);
+
+
+// Text
+// ==================================================================
+@include generateResponsiveUtils(text-align, (left, center, right), false);
+@include generateResponsiveUtils(text-transform, (uppercase, none), false);
+
+.u-text-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.u-text-nowrap {
+  white-space: nowrap;
+}
+
+.u-word-break-break-all {
+  word-break: break-all;
+}
+
+
+// Margin / Padding
+// ==================================================================
+@mixin generateSpaceUtils($bp: null)
+{
+  @each $size in map_keys($spaces-hz)
+  {
+    @each $prop in margin, padding
+    {
+      .u-#{$prop}-#{if($bp, $bp + '-', '') + $size} {
+        #{$prop}: var(--space-vt-#{$size}) var(--space-hz-#{$size});
+      }
+    }
+  }
+
+  .u-margin-#{if($bp, $bp + '-', '')}auto {
+    margin: auto;
+  }
+
+  @each $size in map_keys($spaces-hz)
+  {
+    @each $prop in margin, padding
+    {
+      .u-#{$prop}-hz-#{if($bp, $bp + '-', '') + $size} {
+        #{$prop}: {
+          right: var(--space-hz-#{$size});
+          left: var(--space-hz-#{$size});
+        }
+      }
+
+      .u-#{$prop}-vt-#{if($bp, $bp + '-', '') + $size} {
+        #{$prop}: {
+          top: var(--space-vt-#{$size});
+          bottom: var(--space-vt-#{$size});
+        }
+      }
+    }
+  }
+
+  .u-margin-hz-#{if($bp, $bp + '-', '')}auto {
+    margin: {
+      right: auto;
+      left: auto;
+    }
+  }
+
+  .u-margin-vt-#{if($bp, $bp + '-', '')}auto {
+    margin: {
+      top: auto;
+      bottom: auto;
+    }
+  }
+
+  @each $prop in margin, padding
+  {
+    .u-#{$prop}-hz-#{if($bp, $bp + '-', '')}none {
+      #{$prop}: {
+        right: 0;
+        left: 0;
+      }
+    }
+
+    .u-#{$prop}-vt-#{if($bp, $bp + '-', '')}none {
+      #{$prop}: {
+        top: 0;
+        bottom: 0;
+      }
+    }
+  }
+
+  @each $size in map_keys($spaces-hz)
+  {
+    @each $pos in top, right, bottom, left
+    {
+      @each $prop in margin, padding
+      {
+        .u-#{$prop}-#{$pos}-#{if($bp, $bp + '-', '') + $size} {
+
+          @if $pos == top or $pos == bottom
+          {
+            #{$prop}-#{$pos}: var(--space-vt-#{$size});
+          }
+          @else
+          {
+            #{$prop}-#{$pos}: var(--space-hz-#{$size});
+          }
+        }
+      }
+    }
+  }
+
+  @each $pos in top, right, bottom, left {
+
+    @each $prop in margin, padding {
+
+      .u-#{$prop}-#{$pos}-#{if($bp, $bp + '-', '')}none {
+        #{$prop}-#{$pos}: 0;
+      }
+    }
+  }
+}
+
+@include generateSpaceUtils();
+
+@each $bp in map_keys($screen-sizes)
+{
+  @include screenSize($bp) {
+
+    @include generateSpaceUtils($bp);
+  }
+}
+
+
+// Width / Height
+// ==================================================================
+@include generateResponsiveUtils(width, $size-percentages, false, width, width, '%', true);
+@include generateResponsiveUtils(height, $size-percentages, false, height, height, '%', true);
+
+.u-min-width-0 {
+  min-width: 0;
+}
+
+.u-max-height-100 {
+  max-height: 100%;
+}
+
+.u-width-viewport {
+  margin-left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+}
+
+
+// Content width
+// ==================================================================
+@each $width in map_keys($content-widths)
+{
+  .u-content-width-#{$width} {
+    width: var(--content-width-#{$width});
+    max-width: 100%;
+  }
+}
+
+
+// Layout
+// ==================================================================
+@include generateResponsiveUtils(flex-direction, (row, row-reverse, column, column-reverse), false);
+@include generateResponsiveUtils(flex-wrap, (nowrap, wrap, wrap-reverse), false);
+@include generateResponsiveUtils(align-items, (flex-start, flex-end, center, baseline, stretch), false, null, ai);
+@include generateResponsiveUtils(align-content, (flex-start, flex-end, center, space-between, space-around, stretch), false, null, ac);
+@include generateResponsiveUtils(align-self, (auto, flex-start, flex-end, center, baseline, stretch), false, null, as);
+@include generateResponsiveUtils(justify-content, (flex-start, flex-end, center, space-between, space-around, space-evenly), false, null, jc);
+@include generateResponsiveUtils(display, (inline, block, inline-block, flex, inline-flex, none), false);
+@include generateResponsiveUtils(vertical-align, (top, middle, bottom, baseline), false);
+@include generateResponsiveUtils(position, (static, relative, absolute, fixed), false);
+@include generateResponsiveUtils(flex-grow, (0, 1), false);
+@include generateResponsiveUtils(flex-shrink, (0, 1), false);
+
+.u-flex-1 {
+  flex: 1;
+  -ms-flex: 1 1 auto;
+}
+
+.u-flex-initial {
+  flex: initial;
+}
+
+
+// Cursor
+// ==================================================================
+@each $type in pointer, move
+{
+  .u-cursor-#{$type} {
+    cursor: #{$type};
+  }
+}
+
+
+// Misc
+// ==================================================================
+.u-disable {
+  position: relative;
+  opacity: 0.4;
+
+  &:before {
+    content: '';
+    cursor: not-allowed;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.u-overflow-hidden {
+  overflow: hidden;
+}
+
+.u-overflow-y-auto {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.u-pointer-events-none {
+  pointer-events: none;
+}
+
+.u-scrollbar-hide {
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.u-visibility-hidden {
+  visibility: hidden;
+}
+
+
+// Accessibility
+// ==================================================================
+.u-visually-hidden {
+  border: 0;
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+}

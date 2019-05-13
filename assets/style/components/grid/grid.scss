@@ -1,0 +1,35 @@
+// ==================================================================
+// COMPONENT
+// grid
+//   __item
+//     -tracks-[x]-[x]
+// BREAKPOINTS
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+.grid {
+  display: grid;
+  grid-template-columns: repeat(#{$grid-num-tracks - 1}, 1fr);
+  grid-gap: var(--space-vt-default) var(--space-hz-default);
+  padding: 0 var(--space-hz-default);
+
+
+  &__item {
+    grid-column: 1 / #{$grid-num-tracks};
+    @include generateGridColumn();
+  }
+}
+
+
+
+// ==================================================================
+// BREAKPOINTS
+// ==================================================================
+@import "grid--xs";
+@import "grid--sm";
+@import "grid--md";
+@import "grid--lg";

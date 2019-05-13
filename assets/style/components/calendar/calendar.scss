@@ -1,0 +1,91 @@
+// ==================================================================
+// COMPONENT
+// calendar
+//   __header
+//     __main
+//   __days
+//   __day-label
+//   __week
+//   __day
+//     __value
+//       is-previous
+//       is-next
+//       is-today
+//       is-selected
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+.calendar {
+
+
+  &__header {
+    display: flex;
+    align-items: center;
+
+
+    &__main {
+      display: flex;
+      flex: 1;
+    }
+  }
+
+
+  &__days {
+    display: flex;
+    align-items: center;
+    padding: 2rem 0 1rem;
+  }
+
+
+  &__day-label {
+    text-align: center;
+    flex: 1;
+  }
+
+
+  &__week {
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-bottom: 0.2rem;
+    }
+  }
+
+
+  &__day {
+    text-align: center;
+    flex: 1;
+
+
+    &__value {
+      font-size: var(--font-size-small);
+      color: var(--color-default);
+      background-color: transparent;
+      border: none;
+      width: var(--input-height-small);
+      height: var(--input-height-small);
+
+      &.is-previous, &.is-next, &:disabled {
+        font-weight: var(--font-weight-light);
+        opacity: 0.25;
+      }
+
+      &.is-today {
+        font-weight: var(--font-weight-black);
+        color: var(--color-primary);
+      }
+
+      &.is-selected {
+        font-weight: var(--font-weight-black);
+        color: var(--color-default-reverse);
+        border-radius: 50%;
+        background-color: var(--color-primary);
+      }
+    }
+  }
+}

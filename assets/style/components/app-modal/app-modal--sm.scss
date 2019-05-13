@@ -1,0 +1,25 @@
+@include screenSize(sm) {
+
+  // ==================================================================
+  // COMPONENT
+  // app-modal
+  // ==================================================================
+
+
+
+  // ==================================================================
+  // COMPONENT
+  // ==================================================================
+  .modal {
+    box-shadow: 0 0 5rem 0 var(--color-default-alpha);
+    border: 0.1rem solid var(--color-border);
+    border-radius: var(--border-radius-default);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: auto;
+    max-width: calc(100% - var(--space-hz-default) * 2);
+    max-height: calc(100% - 15rem);
+    transform: translate(-50%, -50%);
+  }
+}

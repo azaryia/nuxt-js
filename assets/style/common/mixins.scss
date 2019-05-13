@@ -1,0 +1,179 @@
+// ==================================================================
+// MIXINS
+// extendChildren
+// generateGridColumn
+// generateResponsiveUtils
+// generateStyleVars
+// generateUtils
+// hover
+// paddingVtInScrollView
+// placeholder
+// screenSize
+// ==================================================================
+
+
+
+// ==================================================================
+// MIXINS
+// ==================================================================
+
+
+// extendChildren
+// ==================================================================
+@mixin extendChildren($parent, $children, $rule: null)
+{
+  @each $child in $children
+  {
+    #{if($rule, $rule, '&')}__#{$child} {
+      @extend .#{$parent}__#{$child};
+    }
+  }
+}
+
+
+// generateGridColumn
+// ==================================================================
+@mixin generateGridColumn($screen-size: null)
+{
+  $position: 1;
+
+  @while $position < $grid-num-tracks
+  {
+    @for $i from 1 through $grid-num-tracks
+    {
+      @if $i != $position
+      {
+        &.-tracks-#{if($screen-size, $screen-size + '-', '')}#{$position}-#{$i} {
+          grid-column: #{$position} / #{$i};
+        }
+      }
+    }
+
+    $position: $position + 1;
+  }
+}
+
+
+// generateResponsiveUtils
+// ==================================================================
+@mixin generateResponsiveUtils($prop, $values, $useVar: true, $varPrefix: $prop, $propAlias: $prop, $unit: '', $useMapValueForProp: false)
+{
+  @include generateUtils($prop, $values, $useVar, $varPrefix, $propAlias, null, $unit, $useMapValueForProp);
+
+  @each $bp in map_keys($screen-sizes)
+  {
+    @include screenSize($bp) {
+
+      @include generateUtils($prop, $values, $useVar, $varPrefix, $propAlias, $bp, $unit, $useMapValueForProp);
+    }
+  }
+}
+
+
+// generateStyleVars
+// ==================================================================
+@mixin generateStyleVars($style-vars, $screen-sizes)
+{
+  $style-vars-keys  : map_keys($style-vars);
+  $screen-sizes-keys: map_keys($screen-sizes);
+
+  :root {
+
+    @each $key in $style-vars-keys
+    {
+      $value: map_get($style-vars, $key);
+
+      @if type-of($value) != map
+      {
+        --#{$key} : #{$value};
+      }
+
+      @else if type-of($value) == map
+      and map_has_key($value, default) {
+        --#{$key} : #{map_get($value, default)};
+      }
+    }
+  }
+
+  @each $screen-size in $screen-sizes-keys
+  {
+    @include screenSize($screen-size) {
+
+      :root {
+
+        @each $key in $style-vars-keys
+        {
+          $value: map_get($style-vars, $key);
+
+          @if type-of($value) == map
+          and map_has_key($value, $screen-size)
+          {
+            --#{$key} : #{map_get($value, $screen-size)};
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// generateUtils
+// ==================================================================
+@mixin generateUtils($prop, $values, $useVar: true, $varPrefix: $prop, $propAlias: $prop, $bp: null, $unit: '', $useMapValueForProp: false)
+{
+  $list: if(type_of($values) == 'map', map_keys($values), $values);
+
+  @each $value in $list
+  {
+    .u-#{$propAlias + if($bp, '-' + $bp + '-', '-') + $value} {
+      #{$prop} : if($useVar, var(--#{$varPrefix}-#{$value}), #{if($useMapValueForProp, map_get($values, $value), $value) + $unit});
+    }
+  }
+}
+
+
+// hover
+// ==================================================================
+@mixin hover()
+{
+  body:not(.is-touch-device) &:hover {
+    @content;
+  }
+}
+
+
+// paddingVtInScrollView
+// ==================================================================
+@mixin paddingVtInScrollView($padding: var(--space-vt-default))
+{
+  &:before, &:after {
+    content: '';
+    display: block;
+    height: $padding;
+  }
+}
+
+
+// placeholder
+// ==================================================================
+@mixin placeholder($color: var(--color-default), $opacity: 1, $font-weight: var(--font-weight-regular))
+{
+  @each $selector in '::-webkit-input-placeholder', ':-moz-placeholder', '::-moz-placeholder', ':-ms-input-placeholder'
+  {
+    &#{$selector} {
+      font-weight: $font-weight;
+      color: $color;
+      opacity: $opacity;
+    }
+  }
+}
+
+
+// screenSize
+// ==================================================================
+@mixin screenSize($size)
+{
+  @media #{map-get($screen-sizes, $size)} {
+    @content;
+  }
+}

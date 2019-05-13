@@ -1,0 +1,58 @@
+@include screenSize(md) {
+
+  // ==================================================================
+  // COMPONENT
+  // sidebar--app-left
+  //   -toggle
+  //   __inner
+  //
+  // sidebar--app-right
+  //   -toggle
+  // ==================================================================
+
+
+
+  // ==================================================================
+  // COMPONENT
+  // ==================================================================
+
+
+  // sidebar--app-left
+  // ==================================================================
+  .sidebar--app-left {
+    position: relative;
+    top: auto;
+    left: auto;
+    z-index: auto;
+    overflow: hidden;
+    width: var(--sidebar-app-left-width);
+    transform: none;
+    transition-property: width;
+
+    &.-toggle {
+      width: 0;
+      transform: none;
+    }
+
+
+    &__inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: var(--sidebar-app-left-width);
+    }
+  }
+
+
+  // sidebar--app-right
+  // ==================================================================
+  .sidebar--app-right {
+    border-left: 0.1rem solid var(--color-border);
+    display: none;
+    width: 20%;
+
+    &.-toggle {
+      display: flex;
+    }
+  }
+}

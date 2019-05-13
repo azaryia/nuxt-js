@@ -35,7 +35,7 @@ export default {
   ** Global CSS
   */
   css: [
-    // '@/assets/style/app.scss'
+    '@/assets/style/app.scss'
   ],
 
   /*

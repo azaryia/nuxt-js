@@ -1,0 +1,42 @@
+@include screenSize(xs) {
+
+  // ==================================================================
+  // COMPONENT
+  // table
+  //   __cell
+  //   __cell--body
+  // ==================================================================
+
+
+
+  // ==================================================================
+  // COMPONENT
+  // ==================================================================
+  .table {
+
+
+    &__cell {
+      padding: {
+        right: var(--table-cell-hz-padding);
+        left: var(--table-cell-hz-padding);
+      }
+
+
+      &--body {
+        padding: {
+          top: calc(var(--table-cell-vt-padding) * 0.33);
+          bottom: calc(var(--table-cell-vt-padding) * 0.33);
+        }
+
+        &:first-child {
+          border-top: 0.1rem solid var(--color-border);
+          padding-top: var(--table-cell-vt-padding);
+        }
+
+        &:last-child {
+          padding-bottom: var(--table-cell-vt-padding);
+        }
+      }
+    }
+  }
+}

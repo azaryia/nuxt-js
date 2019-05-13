@@ -1,0 +1,70 @@
+// ==================================================================
+// COMPONENT
+// input-checkbox
+//   __input
+//   __box
+//   __label
+//
+// input-checkbox--radio
+//   __input
+//   __box
+//   __label
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+
+
+// input-checkbox
+// ==================================================================
+.input-checkbox {
+  display: inline-flex;
+  align-items: flex-start;
+  cursor: pointer;
+
+
+  &__input {
+    display: none;
+
+    &:checked ~ .input-checkbox__box {
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+  }
+
+
+  &__box {
+    color: transparent;
+    border: 0.1rem solid var(--color-border);
+    border-radius: var(--border-radius-default);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    width: var(--input-checkbox-size-default);
+    height: var(--input-checkbox-size-default);
+    transition: all 300ms;
+  }
+
+
+  &__label {
+    font-size: var(--font-size-default);
+    user-select: none;
+  }
+}
+
+
+// input-checkbox--radio
+// ==================================================================
+.input-checkbox--radio {
+  @extend .input-checkbox;
+  @include extendChildren(input-checkbox, (input, box, label));
+
+
+  &__box {
+    border-radius: 50%;
+  }
+}

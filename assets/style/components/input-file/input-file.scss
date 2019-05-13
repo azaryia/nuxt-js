@@ -1,0 +1,19 @@
+// ==================================================================
+// COMPONENT
+// input-file
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+.input-file {
+  border-radius: var(--border-radius-default);
+  border: 0.1rem solid var(--color-border);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 calc((var(--input-height-default) - var(--input-height-small)) / 2) 0 calc(var(--input-height-default) * #{$input-padding-left-multiplier});
+  height: var(--input-height-default);
+}

@@ -1,0 +1,86 @@
+// ==================================================================
+// COMPONENT
+// input-switch
+//   -format-small
+//   __label
+//   __radio
+//   __text
+//     -current
+//   __indicator
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+.input-switch {
+  background-color: var(--color-default-reverse);
+  border: 0.1rem solid var(--color-border);
+  border-radius: var(--input-height-default);
+  display: inline-flex;
+  position: relative;
+  height: var(--input-height-default);
+
+  &.-format-small {
+    border-radius: var(--input-height-small);
+    height: var(--input-height-small);
+
+
+    .input-switch__label {
+      padding: {
+        right: calc(var(--input-height-small) * 0.5);
+        left: calc(var(--input-height-small) * 0.5);
+      }
+    }
+
+
+    .input-switch__indicator {
+      border-radius: var(--input-height-small);
+    }
+  }
+
+
+  &__label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    padding: 0 calc(var(--input-height-default) * 0.5);
+    height: 100%;
+  }
+
+
+  &__radio {
+    display: none;
+  }
+
+
+  &__text {
+    font-weight: var(--font-weight-bold);
+    transition: color 300ms;
+
+    &.-current {
+      color: var(--color-default-reverse);
+    }
+  }
+
+
+  &__indicator {
+    background: {
+      color: var(--color-primary);
+      clip: padding-box;
+    }
+    border: 0.4rem solid transparent;
+    border-radius: var(--input-height-default);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 50%;
+    height: 100%;
+    transition: all 300ms;
+  }
+}

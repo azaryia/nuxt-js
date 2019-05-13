@@ -1,0 +1,87 @@
+// ==================================================================
+// COMPONENT
+// table
+//   __head
+//   __cell
+//     -cursor-default
+//     __inner
+//     __main-content
+//     __extra
+//   __cell--head
+//     __inner
+//     __main-content
+//     __extra
+//   __cell--body
+//     __inner
+//     __main-content
+//     __extra
+// BREAKPOINTS
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+.table {
+  border-bottom: 0.1rem solid var(--color-border);
+
+
+  &__head {
+    display: none;
+  }
+
+
+  &__cell {
+    cursor: pointer;
+
+    &.-cursor-default {
+      cursor: default;
+    }
+
+
+    &__inner {
+      text-align: left;
+      border: none;
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      padding: 0;
+      width: 100%;
+    }
+
+
+    &__main-content {
+      display: flex;
+      flex: 1;
+    }
+
+
+    &__extra {
+      color: var(--color-default-light);
+      display: flex;
+      align-items: center;
+      padding-left: calc(var(--table-cell-hz-padding) * 0.5);
+    }
+
+
+    &--head {
+      @extend .table__cell;
+      @include extendChildren(table__cell, (inner, main-content, extra));
+    }
+
+
+    &--body {
+      @extend .table__cell;
+      @include extendChildren(table__cell, (inner, main-content, extra));
+    }
+  }
+}
+
+
+
+// ==================================================================
+// BREAKPOINTS
+// ==================================================================
+@import "table--xs";
+@import "table--sm";

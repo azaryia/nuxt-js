@@ -1,0 +1,55 @@
+// ==================================================================
+// COMPONENT
+// app-toast-manager
+//   __item
+//     -sticky
+//   __wrapper
+//     -enter
+//     -leave-to
+//     -leave-active
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+.toast-manager {
+  position: absolute;
+  top: var(--space-hz-default);
+  right: 0;
+  z-index: z('app-toast-manager');
+  padding: 0 var(--space-hz-default);
+  width: 100%;
+  max-width: 40rem;
+
+
+  // do not move __item after __wrapper to prevent from breaking transition
+  &__item {
+    position: relative;
+    height: 3rem;
+    transition: all 0.4s ease-out;
+
+    &.-sticky {
+      height: auto;
+    }
+  }
+
+
+  &__wrapper {
+
+    &-enter {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+
+    &-leave-to {
+      transform: translateX(calc(100% + var(--space-hz-default)));
+    }
+
+    &-leave-active {
+      position: absolute;
+      width: 100%;
+    }
+  }
+}

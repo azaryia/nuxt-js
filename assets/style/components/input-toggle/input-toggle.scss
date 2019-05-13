@@ -1,0 +1,67 @@
+// ==================================================================
+// COMPONENT
+// input-toggle
+//   -format-small
+//   __input
+//   __box
+//   __label
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+.input-toggle {
+  display: inline-flex;
+  cursor: pointer;
+  height: var(--input-height-default);
+
+  &.-format-small {
+    height: var(--input-height-small);
+
+
+    .input-toggle__box {
+      border-radius: var(--input-height-small);
+      padding: 0 calc(var(--input-height-small) * 0.5);
+    }
+
+
+    .input-toggle__label {
+      font-size: var(--font-size-small);
+    }
+  }
+
+
+  &__input {
+    display: none;
+
+    &:checked ~ .input-toggle__box {
+      color: var(--color-default-reverse);
+      border-color: var(--color-primary);
+      background-color: var(--color-primary);
+    }
+  }
+
+
+  &__box {
+    border: 0.1rem solid var(--color-border);
+    border-radius: var(--input-height-default);
+    background-color: var(--color-default-reverse);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 calc(var(--input-height-default) * 0.5);
+    height: 100%;
+    transition: all 300ms;
+  }
+
+
+  &__label {
+    font: {
+      size: var(--font-size-default);
+      weight: var(--font-weight-medium);
+    }
+    user-select: none;
+  }
+}

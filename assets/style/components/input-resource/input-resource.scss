@@ -1,0 +1,26 @@
+// ==================================================================
+// COMPONENT
+// input-resource
+//   __value
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+.input-resource {
+  border: 0.1rem solid var(--color-border);
+  border-radius: var(--border-radius-default);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding-left: calc(var(--input-height-default) * #{$input-padding-left-multiplier});
+  height: var(--input-height-default);
+
+
+  &__value {
+    flex: 1;
+    min-width: 0;
+  }
+}

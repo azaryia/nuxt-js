@@ -1,0 +1,59 @@
+@include screenSize(sm) {
+
+  // ==================================================================
+  // COMPONENT
+  // modal-manager
+  //   __overlay
+  //     v-enter-active
+  //     v-leave
+  //     v-enter
+  //     v-leave-to
+  //   __item
+  //     v-enter-active
+  //     v-enter
+  //     v-leave-to
+  //     -behind
+  // ==================================================================
+
+
+
+  // ==================================================================
+  // COMPONENT
+  // ==================================================================
+  .modal-manager {
+
+
+    &__overlay {
+      background: var(--color-default);
+      opacity: 0.5;
+      transition-timing-function: ease-in-out;
+
+      &.v-enter-active {
+        transform: none;
+      }
+
+      &.v-leave {
+        transition-delay: calc(var(--transition-d-slide) * 0.3);
+      }
+
+      &.v-enter, &.v-leave-to {
+        opacity: 0;
+        transform: none;
+        transition-duration: calc(var(--transition-d-slide) * 0.7);
+      }
+    }
+
+
+    &__item {
+
+      &.v-enter-active {
+        transition-delay: calc(var(--transition-d-slide) * 0.5);
+      }
+
+      &.v-enter, &.v-leave-to, &.-behind {
+        transform: translate3d(0, 2rem, 0);
+        opacity: 0;
+      }
+    }
+  }
+}

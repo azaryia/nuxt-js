@@ -1,0 +1,65 @@
+// ==================================================================
+// FUNCTIONS
+// addStyleVars
+// initVar
+// z
+// ==================================================================
+
+
+
+// ==================================================================
+// FUNCTIONS
+// ==================================================================
+
+
+// addStyleVars
+// ==================================================================
+@function addStyleVars($list, $prefix: null)
+{
+  $result: ();
+
+  @each $key, $value in $list
+  {
+    @if $prefix
+    {
+      $result: map-merge($result, (#{$prefix}-#{$key} : $value));
+    }
+    @else
+    {
+      $result: map-merge($result, (#{$key} : $value));
+    }
+  }
+
+  @return map-merge($style-vars, $result);
+}
+
+
+// initVar
+// ==================================================================
+@function initVar($name, $defaultValue)
+{
+  @if variable_exists('azaryia-vue-vars-override')
+  {
+    @return if(map_has_key($azaryia-vue-vars-override, $name), map_get($azaryia-vue-vars-override, $name), $defaultValue);
+  }
+  @else
+  {
+    @return $defaultValue;
+  }
+}
+
+
+// z
+// ==================================================================
+@function z($name)
+{
+  @if index($z-indexes, $name)
+  {
+    @return ((length($z-indexes) - index($z-indexes, $name)) + 1) * 10;
+  }
+  @else
+  {
+    @warn 'There is no item "#{$name}"';
+    @return null;
+  }
+}

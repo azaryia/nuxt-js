@@ -1,0 +1,50 @@
+// ==================================================================
+// COMPONENT
+// app-modal
+//   -size-xxlarge
+//   __main-content
+//   __footer
+// BREAKPOINTS
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+.modal {
+  background-color: var(--color-default-reverse);
+  display: flex;
+  flex-direction: column;
+  pointer-events: all;
+  width: 55rem;
+  height: 100%;
+  max-width: 100%;
+
+  &.-size-xxlarge {
+    width: 120rem;
+  }
+
+
+  &__main-content {
+    flex: 1;
+    overflow: {
+      x: hidden;
+      y: auto;
+    }
+  }
+
+
+  &__footer {
+    box-shadow: 0 -0.1rem 1rem 0 var(--color-shadow);
+    border-top: 0.1rem solid var(--color-border);
+    background-color: var(--color-bar);
+  }
+}
+
+
+
+// ==================================================================
+// BREAKPOINTS
+// ==================================================================
+@import "app-modal--sm";

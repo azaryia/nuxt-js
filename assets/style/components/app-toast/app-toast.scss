@@ -1,0 +1,50 @@
+// ==================================================================
+// COMPONENT
+// app-toast
+//   -state-info
+//   -state-error
+//   -state-warning
+//   -state-success
+//   __header
+//   __footer
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+.toast {
+  box-shadow: 0 0rem 2rem 0.1rem var(--color-default-alpha);
+  border-left: 1rem solid var(--color-primary);
+  border-radius: var(--border-radius-default);
+  background-color: var(--color-default);
+  margin-bottom: var(--space-hz-default);
+  padding: 1rem;
+
+  &.-state-info {
+    border-left-color: var(--color-info);
+  }
+
+  &.-state-destructive {
+    border-left-color: var(--color-destructive);
+  }
+
+  &.-state-warning {
+    border-left-color: var(--color-warning);
+  }
+
+  &.-state-success {
+    border-left-color: var(--color-success);
+  }
+
+
+  &__header {
+    padding-bottom: 0.5rem;
+  }
+
+
+  &__footer {
+    padding-top: 2rem;
+  }
+}

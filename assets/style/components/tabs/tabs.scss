@@ -1,0 +1,111 @@
+// ==================================================================
+// COMPONENT
+// tabs
+//   __item
+//     -current
+//     __inner
+//     __main-content
+//     __text
+//     __subtext
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+.tabs {
+  box-shadow: 0 0.1rem 1rem 0 var(--color-shadow);
+  background-color: var(--color-bar);
+  display: flex;
+  align-items: flex-end;
+  overflow: {
+    x: auto;
+    y: hidden;
+  }
+  height: var(--tabs-height);
+
+  // Border bottom
+  &:after {
+    content: '';
+    background-color: var(--color-border);
+    display: flex;
+    flex: 1;
+    height: 0.1rem;
+  }
+
+
+  &__item {
+    position: relative;
+    height: 100%;
+
+    // Border bottom
+    &:after {
+      content: '';
+      background-color: var(--color-border);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0.1rem;
+      transition: all 300ms;
+    }
+
+    &.-current {
+
+      // Border bottom
+      &:after {
+        background-color: var(--color-primary);
+        height: 0.4rem;
+      }
+
+
+      .tabs__item__inner {
+        color: var(--color-primary);
+      }
+    }
+
+
+    &__inner {
+      color: inherit;
+      text-align: left;
+      border: none;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      padding: 0 var(--space-hz-default);
+      height: 100%;
+      transition: color 300ms;
+    }
+
+
+    &__main-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+
+    &__text, &__subtext {
+      white-space: nowrap;
+    }
+
+
+    &__text {
+      font: {
+        size: var(--font-size-small);
+        weight: var(--font-weight-medium);
+      }
+      text-transform: uppercase;
+      transform: var(--font-scale-y);
+    }
+
+
+    &__subtext {
+      font: {
+        size: var(--font-size-small);
+        weight: var(--font-weight-light);
+      }
+    }
+  }
+}

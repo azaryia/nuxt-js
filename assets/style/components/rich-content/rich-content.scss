@@ -1,0 +1,72 @@
+// ==================================================================
+// COMPONENT
+// rich-content
+//   *
+//   p
+//   li
+//   ul
+//   ol
+//   em
+//   strong
+//   a
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+.rich-content {
+
+
+  > *:first-child {
+    margin-top: 0 !important;
+  }
+
+
+  p, li {
+    font: {
+      size: var(--font-size-default);
+      weight: var(--font-weight-regular);
+    }
+    line-height: var(--line-height-medium);
+    color: var(--color-default);
+  }
+
+
+  li:not(:first-child) {
+    margin-top: var(--space-vt-xsmall);
+  }
+
+
+  p, ul, ol {
+    margin-top: var(--space-vt-default);
+  }
+
+
+  ul {
+    list-style: disc inside;
+  }
+
+
+  ol {
+    list-style: decimal inside;
+  }
+
+
+  em {
+    font-style: italic;
+  }
+
+
+  strong {
+    font-weight: var(--font-weight-bold);
+  }
+
+
+  a {
+    text-decoration: none;
+    color: var(--color-primary);
+    border-bottom: 0.1rem solid;
+  }
+}

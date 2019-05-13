@@ -1,0 +1,63 @@
+// ==================================================================
+// COMPONENT
+// fieldset
+//   -margin-top-none
+//   __header
+//     __main-content
+//     __extra
+//       -left
+//       -right
+//   __main-content
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+.fieldset {
+  border: 0.1rem solid var(--color-border);
+  border-radius: var(--border-radius-default);
+  margin-top: var(--space-vt-default);
+
+  &.-margin-top-none {
+    margin-top: 0;
+  }
+
+
+  &__header {
+    display: flex;
+    align-items: center;
+    padding: 0 var(--space-hz-default);
+    height: var(--input-height-default);
+
+
+    &__main-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+
+    &__extra {
+      display: flex;
+      align-items: center;
+
+      &.-left {
+        margin-left: calc(-0.5 * var(--input-height-xsmall) * #{$input-padding-left-multiplier});
+        padding-right: 1rem;
+      }
+
+      &.-right {
+        margin-right: calc(-0.5 * var(--input-height-xsmall) * #{$input-padding-left-multiplier});
+        padding-left: 1rem;
+      }
+    }
+  }
+
+
+  &__main-content {
+    border-top: 0.1rem solid var(--color-border);
+    background-color: transparentize($color-default, 0.99);
+    padding: var(--space-hz-default);
+  }
+}

@@ -1,0 +1,52 @@
+// ==================================================================
+// COMPONENT
+// progress
+//   __indicator
+//     __circle
+//   __content
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+.progress {
+  color: var(--color-meta);
+  border-radius: 50%;
+  background: {
+    clip: content-box;
+    color: var(--color-background);
+  }
+  position: relative;
+  transition: all 400ms;
+
+
+  &__indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+    transform-origin: center;
+
+
+    &__circle {
+      fill: transparent;
+      stroke: currentColor;
+      transition: stroke-dashoffset 400ms;
+    }
+  }
+
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    height: 100%;
+  }
+}

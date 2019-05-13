@@ -1,0 +1,50 @@
+@include screenSize(sm) {
+
+  // ==================================================================
+  // COMPONENT
+  // view
+  //   __main-content
+  //     __inner
+  //     __extra
+  //       -visible
+  //     __extra--left
+  //     __extra--right
+  // ==================================================================
+
+
+
+  // ==================================================================
+  // COMPONENT
+  // ==================================================================
+  .view {
+
+
+    &__main-content {
+
+
+      &__inner {
+        flex: 3;
+      }
+
+
+      &__extra {
+        background-color: transparentize($color-default, 0.99);
+        flex: 1;
+
+        &:not(.-visible) {
+          display: none;
+        }
+
+
+        &--left {
+          border-right: 0.1rem solid var(--color-border);
+        }
+
+
+        &--right {
+          border-left: 0.1rem solid var(--color-border);
+        }
+      }
+    }
+  }
+}

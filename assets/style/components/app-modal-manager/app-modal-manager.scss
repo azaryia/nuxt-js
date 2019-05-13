@@ -1,0 +1,88 @@
+// ==================================================================
+// COMPONENT
+// modal-manager
+//   -visible
+//   __overlay
+//     v-enter-active
+//     v-enter
+//     v-leave-to
+//   __wrapper
+//   __item
+//     v-leave-active
+//     v-enter
+//     v-leave-to
+// BREAKPOINTS
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+.modal-manager {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: z('modal-manager');
+  overflow: hidden;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+
+  &.-visible {
+    visibility: visible;
+  }
+
+
+  &__overlay {
+    background: var(--color-default-reverse);
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all var(--transition-d-slide) var(--transition-tf-slide);
+
+    &.v-enter-active {
+      transform: translate3d(0, 0, 0);
+    }
+
+    &.v-enter, &.v-leave-to {
+      transform: translate3d(0, 100%, 0);
+    }
+  }
+
+
+  &__wrapper {
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+  }
+
+
+  &__item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    transition: all var(--transition-d-slide) var(--transition-tf-slide);
+
+    &.v-leave-active {
+      transform: translate3d(0, 0, 0);
+    }
+
+    &.v-enter, &.v-leave-to {
+      transform: translate3d(0, 100%, 0);
+    }
+  }
+}
+
+
+
+// ==================================================================
+// BREAKPOINTS
+// ==================================================================
+@import "app-modal-manager--sm";

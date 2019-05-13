@@ -1,0 +1,94 @@
+// ==================================================================
+// COMPONENT
+// resizable
+//   __handle
+//     -top
+//     -top-left
+//     -top-right
+//     -bottom
+//     -bottom-left
+//     -bottom-right
+//     -left
+//     -right
+//     __inner
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+.resizable {
+  border: 0.1rem dashed transparentize($color-default-reverse, 0.2);
+  position: absolute;
+  overflow: hidden;
+  cursor: move;
+
+
+  &__handle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    &.-top, &.-top-left, &.-top-right {
+      top: 0;
+    }
+
+    &.-top {
+      cursor: n-resize;
+    }
+
+    &.-top-left {
+      cursor: nw-resize;
+    }
+
+    &.-top-right {
+      cursor: ne-resize;
+    }
+
+    &.-bottom, &.-bottom-left, &.-bottom-right {
+      top: 100%;
+    }
+
+    &.-bottom {
+      cursor: s-resize;
+    }
+
+    &.-bottom-left {
+      cursor: sw-resize;
+    }
+
+    &.-bottom-right {
+      cursor: se-resize;
+    }
+
+    &.-left, &.-top-left, &.-bottom-left {
+      left: 0;
+    }
+
+    &.-left {
+      cursor: w-resize;
+    }
+
+    &.-right, &.-top-right, &.-bottom-right {
+      left: 100%;
+    }
+
+    &.-right {
+      cursor: e-resize;
+    }
+
+
+    &__inner {
+      border: 0.1rem solid transparentize($color-default-reverse, 0.2);
+      border-radius: 50%;
+      background: var(--color-primary);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 6rem;
+      height: 6rem;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

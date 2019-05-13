@@ -1,0 +1,74 @@
+// ==================================================================
+// COMPONENT
+// spinner
+//   -size-xsmall
+//   -size-small
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+
+
+// spinner
+// ==================================================================
+@keyframes spin {
+
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  display: inline-flex;
+  position: relative;
+  width: var(--input-height-default);
+  height: var(--input-height-default);
+
+  // Circles
+  &:before, &:after {
+    content: '';
+    border: {
+      color: var(--color-border);
+      style: solid;
+      width: 0.3rem;
+    }
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &:before {
+    z-index: 1;
+  }
+
+  &:after {
+    border-top-color: var(--color-primary);
+    z-index: 2;
+    animation: {
+      duration: 800ms;
+      iteration-count: infinite;
+      name: spin;
+      timing-function: cubic-bezier(0.62, 0.35, 0.4, 0.66);
+    }
+  }
+
+  &.-size-xsmall {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  &.-size-small {
+    width: var(--input-height-small);
+    height: var(--input-height-small);
+  }
+}

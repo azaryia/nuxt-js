@@ -1,0 +1,125 @@
+// ==================================================================
+// COMPONENT
+// sidebar
+//   __inner
+//   __header
+//     __main
+//   __main
+//   __footer
+//
+// sidebar--app-left
+//   -toggle
+//   __inner
+//   __header
+//     __main
+//   __main
+//   __footer
+//
+// sidebar--app-right
+//   __inner
+//   __header
+//     __main
+//   __main
+//   __footer
+// BREAKPOINTS
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+
+
+// sidebar
+// ==================================================================
+.sidebar {
+
+
+  &__inner {
+    color: var(--sidebar-color);
+    background-color: var(--sidebar-background-color);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+
+  &__header {
+    border-bottom: var(--border-width-default) solid var(--sidebar-border-color);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: var(--navigation-bar-height);
+
+
+    &__main {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      padding: 1.2rem var(--sidebar-space-hz);
+      height: 100%;
+    }
+  }
+
+
+  &__main {
+    flex: 1;
+    overflow: {
+      x: hidden;
+      y: auto;
+    }
+  }
+
+
+  &__footer {
+    border-top: 0.1rem solid var(--sidebar-border-color);
+    padding: var(--sidebar-space-hz);
+  }
+}
+
+
+// sidebar--app-left
+// ==================================================================
+.sidebar--app-left {
+  @include extendChildren('sidebar', ('inner', 'header', 'main', 'footer'));
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: z('sidebar');
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  transition: transform var(--transition-d-slide) var(--transition-tf-slide);
+
+  &.-toggle {
+    transform: translateX(0);
+  }
+
+
+  &__header {
+    @include extendChildren('sidebar__header', ('main'));
+  }
+}
+
+
+// sidebar--app-right
+// ==================================================================
+.sidebar--app-right {
+  @extend .sidebar--app-left;
+  @include extendChildren('sidebar--app-left', ('inner', 'header', 'main', 'footer'));
+  transform: translateX(100%);
+
+
+  &__header {
+    @include extendChildren('sidebar--app-left__header', ('main'));
+  }
+}
+
+
+
+// ==================================================================
+// BREAKPOINTS
+// ==================================================================
+@import "sidebar--sm";
+@import "sidebar--md";

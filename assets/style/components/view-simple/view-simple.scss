@@ -1,0 +1,32 @@
+// ==================================================================
+// COMPONENT
+// view-simple
+//   __header
+//     __logo
+//   __footer
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+.view-simple {
+
+
+  &__header {
+    text-align: center;
+    padding-bottom: var(--space-vt-large);
+
+
+    &__logo {
+      padding-bottom: var(--space-vt-large);
+      width: 20rem;
+    }
+  }
+
+
+  &__footer {
+    padding-top: var(--space-vt-large);
+  }
+}
