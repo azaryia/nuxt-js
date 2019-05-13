@@ -7,7 +7,7 @@ export default {
   ** Variables environment
   */
   env: {
-    baseUrl: 'https://my-json-server.typicode.com/alexandre-tobia/api-sample'
+    baseUrl: 'http://localhost:3010'
   },
 
   /*

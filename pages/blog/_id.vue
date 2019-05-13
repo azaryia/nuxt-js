@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h2>Article n° {{currentArticle.id}} - {{currentArticle.name}}</h2>
-    <p>{{currentArticle.description}}</p>
-    <nuxt-link :to="{name: 'blog'}"><button>to back</button></nuxt-link>
+    <h2>Article n° {{currentArticle.id}} - {{currentArticle.title}}</h2>
+    <p>{{currentArticle.text}}</p>
+    <nuxt-link :to="{name: 'blog'}"><button>Retour</button></nuxt-link>
   </div>
 </template>
 
@@ -11,7 +11,7 @@
 
   export default {
     async asyncData({params}) {
-      const { data } = await axios.get(`/servers/${params.id}`);
+      const { data } = await axios.get(`/article/${params.id}`);
       console.log(data);
       return {
         currentArticle: data
@@ -25,7 +25,7 @@
     },
     head() {
       return {
-        title: `Article ${this.currentArticle.name}`,
+        title: `Article ${this.currentArticle.title}`,
         meta: 'Content meta'
       }
     },

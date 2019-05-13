@@ -17,7 +17,7 @@ $ yarn start
 
 # serve json database
 $ cd json-server
-$ json-server --watch db.json
+$ json-server --watch db.json --port 3010
 
 # generate static project
 $ yarn run generate
