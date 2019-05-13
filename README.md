@@ -20,7 +20,7 @@ $ npm install -g json-server
 
 # serve json database
 $ cd json-server
-$ json-server --watch db.json --port 3010
+$ json-server --watch db.json --port 9000
 
 # generate static project
 $ yarn run generate
