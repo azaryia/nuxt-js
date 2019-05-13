@@ -2,7 +2,7 @@
   "name": "nuxt-js",
   "version": "1.0.0",
   "description": "My transcendent Nuxt.js project",
-  "author": "Mélissa Loeser",
+  "author": "Azaryia",
   "private": true,
   "scripts": {
     "dev": "nuxt",
