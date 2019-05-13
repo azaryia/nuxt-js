@@ -14,7 +14,7 @@
         <button type="submit" value="Submit" class="button">Add Gin</button>
       </p>
     </form>
-    <nuxt-link :to="{name: 'blog'}"><button>Retour</button></nuxt-link>
+    <nuxt-link :to="{name: 'admin'}"><button>Retour</button></nuxt-link>
   </div>
 </template>
 
