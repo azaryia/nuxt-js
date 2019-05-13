@@ -19,9 +19,9 @@
       }
     },
     computed: {
-      dwcInput: function () {
+      rbuInput: function () {
         let vm = this
-        if (vm.$parent && vm.$parent.$options && vm.$parent.$options.dwcInput) {
+        if (vm.$parent && vm.$parent.$options && vm.$parent.$options.rbuInput) {
           return vm.$parent
         }
         return null
@@ -30,7 +30,7 @@
     methods: {
       doEvent: function (event) {
         let vm = this
-        let input = vm.dwcInput
+        let input = vm.rbuInput
         if (input) {
           if (input.errorOff === event) {
             vm.showError = false
@@ -41,7 +41,7 @@
         }
       },
       getError: function () {
-        return this.dwcInput && this.dwcInput.getError()
+        return this.rbuInput && this.rbuInput.getError()
       }
     }
   }

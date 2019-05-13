@@ -1,25 +1,27 @@
 <template>
   <div>
     <h2>Nouvel article</h2>
-    <form @submit.prevent="addArticle">
-      <p>
-        <label for="title" class="input-label">Titre</label>
-        <input id="title" v-model="article.title" type="text" name="name" class="input">
-      </p>
-      <p>
-        <label for="text" class="input-label">Titre</label>
-        <textarea id="text" v-model="article.text" name="text" class="input"></textarea>
-      </p>
-      <p>
-        <button type="submit" value="Submit" class="button">Add Gin</button>
-      </p>
-    </form>
+    <Form @submit="addArticle">
+      <Field label="Titre">
+        <InputText v-model="article.title" required />
+      </Field>
+      <Field label="Description">
+        <InputTextArea v-model="article.text" require />
+      </Field>
+      <div slot="actions" class="u-display-flex u-jc-flex-end u-padding-top-medium">
+        <ButtonTextIcon modifiers="-theme-secondary" utils="u-color-default u-font-weight-bold" :text="article.id ? 'Sauvegarder' : 'Créer'" iconBefore="save" />
+      </div>
+    </Form>
     <nuxt-link :to="{name: 'blog'}"><button>Retour</button></nuxt-link>
   </div>
 </template>
 
 <script>
   import axios from "~/plugins/axios";
+  import Field from "~/components/Field.vue";
+  import Form from "~/components/Form.vue";
+  import InputText from "~/components/InputText.vue";
+  import InputTextArea from "~/components/InputTextArea.vue";
 
   export default {
     async asyncData({params}) {
@@ -28,6 +30,12 @@
       return {
         article: data
       }
+    },
+    components: {
+      Field,
+      Form,
+      InputText,
+      InputTextArea
     },
     data() {
       return {

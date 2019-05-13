@@ -1,11 +1,11 @@
 <template>
-  <AthInputWrapper v-bind="wrapperProps">
-    <textarea :class="$classes" v-model="model" :placeholder="placeholder" :disabled="disabled" :rows="rows" :cols="cols" :maxlength="maxLength" ref="ta"></textarea>
-  </AthInputWrapper>
+  <RbUInputWrapper>
+    <textarea v-model="model" :placeholder="placeholder" :disabled="disabled" :rows="rows" :cols="cols" :maxlength="maxLength" ref="ta"></textarea>
+  </RbUInputWrapper>
 </template>
 
 <script>
-  import RbUInput from 'Input.vue';
+  import RbUInput from './Input.vue';
   export default {
     extends: RbUInput,
     props: {
