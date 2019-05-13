@@ -31,20 +31,6 @@
       return {
         title: 'Articles'
       }
-    },
-    mounted() {
-      // this.generateArticles();
-    },
-    methods: {
-      generateArticles() {
-          for (let i = 1; i < 6; i++) {
-            this.articles.push({
-              id: i,
-              title: `Articles ${i} title`,
-              content: `Articles ${i} content`,
-            })
-          }
-      }
     }
   };
 </script>
