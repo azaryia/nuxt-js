@@ -13,7 +13,8 @@
 </template>
 
 <script>
-  import _ from 'lodash'
+  import _ from 'lodash';
+
   export default {
     name: 'frm',
     props: {
@@ -27,8 +28,8 @@
     methods: {
       checkInputs: function (component) {
         let vm = this
-        if (component && component.$options && component.$options.dwcInput) {
-          let isValid = component.isValid()
+        if (component && component.$options && component.$options.rbuInput) {
+          let isValid = component.isValid();
           if (!isValid) {
             component.$emit('submit')
           }

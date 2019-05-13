@@ -1,6 +1,6 @@
 <script>
   export default {
-    dwcInput: true,
+    rbuInput: true,
     props: {
       value: null,
       required: Boolean,

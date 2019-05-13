@@ -19,15 +19,14 @@
     },
     data() {
       return {
-        currentArticle: null,
-
+        currentArticle: null
       }
     },
     head() {
       return {
         title: `Article ${this.currentArticle.title}`,
         meta: [
-          { hid: 'description', name: 'description', content: this.currentArticle.description }
+          { hid: 'description', name: 'description', content: this.currentArticle.text }
         ]
       }
     }

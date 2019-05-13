@@ -11,14 +11,17 @@
 
   export default {
     extends: RbUButton,
+    components: {
+      RbUButton
+    },
     props: {
       text: String
     },
     computed: {
       btnTextProps: function () {
-        let props = this.btnProps
-        props.text = this.text
-        return props
+        let props = this.btnProps;
+        props.text = this.text;
+        return props;
       }
     }
   }

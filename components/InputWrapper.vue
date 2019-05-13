@@ -20,7 +20,7 @@
     },
     computed: {
       rbuInput: function () {
-        let vm = this
+        let vm = this;
         if (vm.$parent && vm.$parent.$options && vm.$parent.$options.rbuInput) {
           return vm.$parent
         }
@@ -29,8 +29,8 @@
     },
     methods: {
       doEvent: function (event) {
-        let vm = this
-        let input = vm.rbuInput
+        let vm = this;
+        let input = vm.rbuInput;
         if (input) {
           if (input.errorOff === event) {
             vm.showError = false

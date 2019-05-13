@@ -6,8 +6,13 @@
 
 <script>
   import RbUInput from './Input.vue';
+  import RbUInputWrapper from './InputWrapper.vue';
+
   export default {
     extends: RbUInput,
+    components: {
+      RbUInputWrapper
+    },
     props: {
       cols: null,
       rows: null,
