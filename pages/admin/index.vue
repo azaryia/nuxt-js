@@ -3,7 +3,7 @@
     <h2>{{title}}</h2>
     <ul>
       <li v-for="article in articles" :key="article.id">
-        <h2>{{article.title}}</h2><nuxt-link :to="{name: 'admin-id', params: {id: article.id}}">Modifier l'article</nuxt-link>
+        <span>{{article.title}}</span><nuxt-link :to="{name: 'admin-id', params: {id: article.id}}">Modifier l'article</nuxt-link>
       </li>
     </ul>
   </div>
@@ -35,9 +35,3 @@
   };
 </script>
 
-<style>
-  .container {
-    width: 298px;
-    margin: 0 auto;
-  }
-</style>
