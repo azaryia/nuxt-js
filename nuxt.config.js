@@ -7,7 +7,7 @@ export default {
   ** Variables environment
   */
   env: {
-    baseUrl: 'http://localhost:3010'
+    baseUrl: 'http://localhost:9000'
   },
 
   /*
