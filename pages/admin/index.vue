@@ -52,16 +52,7 @@
         if (confirm('Voulez-vous vraiment supprimer cet article ' + article.title + '?  Cette action est irréversible.')) {
           axios.delete(`/article/${article.id}`)
             .then(() => {
-            axios.get('/article')
-              .then((data) => {
-                vm.articles = data;
-                vm.loading = false;
-              })
-              .catch((err) => {
-                vm.errors.push(err);
-                console.error(err);
-                vm.loading = false;
-              })
+              location.reload();
           })
             .catch((err) => {
               vm.errors.push(err);

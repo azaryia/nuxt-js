@@ -71,6 +71,7 @@
         axios[method](action, this.article)
           .then((Response) => {
             console.log(Response);
+            this.$router.back();
           })
           .catch((err) => {
             vm.errors.push(err);
