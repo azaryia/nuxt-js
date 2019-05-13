@@ -15,6 +15,9 @@ $ yarn run dev
 $ yarn run build
 $ yarn start
 
+# install globally json server
+$ npm install -g json-server
+
 # serve json database
 $ cd json-server
 $ json-server --watch db.json --port 9000
@@ -25,6 +28,8 @@ $ yarn run generate
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 
-- Json-serve pour l'api
-- create un repo en groupe
-  entity: multiple field 'CRUD en ajax'
+- Json-server pour l'api
+- Créer un repo en groupe de deux
+- entity: multiple field 'CRUD en ajax' (Ajout, édition, suppression)
+- Une navbar
+- Envoyer le dossier "dist" en zip après avoir fait un "nuxt generate"
