@@ -2,6 +2,7 @@
   <div class="container">
     <h2>{{title}}</h2>
     <ul>
+      <RBUForm></RBUForm>
      <li v-for="article in articles" :key="article.id">
         <h2><nuxt-link :to="{name: 'blog-id', params: {id: article.id}}">{{article.name}}</nuxt-link></h2>
         <p>{{article.description}}</p>

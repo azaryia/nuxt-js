@@ -1,9 +1,4 @@
 import pkg from './package'
-import components from './components'
-
-_.each(components, function (component, name) {
-  Vue.component('Azar' + name, component)
-});
 
 export default {
   mode: 'universal',
