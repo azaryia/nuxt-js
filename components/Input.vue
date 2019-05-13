@@ -1,5 +1,4 @@
 <script>
-  import { mapGetters } from 'vuex'
   export default {
     dwcInput: true,
     props: {
@@ -30,11 +29,6 @@
         dirty: false
       }
     },
-    computed: {
-      ...mapGetters({
-        showKeyboard: 'showKeyboard'
-      })
-    },
     methods: {
       isValid: function () {
         return !this.getError()
@@ -51,10 +45,6 @@
         this.layout = e.target.dataset.layout
         this.model = this.input.value
         this.$emit('input', this.input.value)
-        if (!this.showKeyboard && window.innerWidth <= 1024) {
-          this.$store.commit('SHOW_KEYBOARD', {showKeyboard: true, infoKeyboard: {placeholder: this.placeholder, layout: this.layout, input: this.input}})
-          this.$store.commit('INPUT_KEYBOARD', {inputKeyboard: this.input.value})
-        }
       },
       valueChanged: function () {
         let value = this.value
@@ -68,7 +58,6 @@
     watch: {
       model: function () {
         let value = this.model
-        this.$store.commit('INPUT_KEYBOARD', {inputKeyboard: this.input.value})
         this.$emit('input', value)
       },
       value: function () {

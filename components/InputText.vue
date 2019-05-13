@@ -5,8 +5,8 @@
 </template>
 
 <script>
-  import DwcInput from './Input'
+  import RbUInput from './Input'
   export default {
-    extends: DwcInput
+    extends: RbUInput
   }
 </script>
