@@ -2,7 +2,7 @@
   "name": "nuxt-js",
   "version": "1.0.0",
   "description": "My transcendent Nuxt.js project",
-  "author": "Azaryia",
+  "author": "Azaryia and Soggard",
   "private": true,
   "scripts": {
     "dev": "nuxt",
