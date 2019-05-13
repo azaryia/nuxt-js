@@ -4,6 +4,13 @@ export default {
   mode: 'universal',
 
   /*
+  ** Variables environment
+  */
+  env: {
+    baseUrl: 'https://my-json-server.typicode.com/alexandre-tobia/api-sample'
+  },
+
+  /*
   ** Headers of the page
   */
   head: {
@@ -14,7 +21,8 @@ export default {
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'}
     ]
   },
 
@@ -27,6 +35,7 @@ export default {
   ** Global CSS
   */
   css: [
+    // '@/assets/style/app.scss'
   ],
 
   /*
@@ -47,6 +56,18 @@ export default {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+  },
+
+  /*
+  ** Generate dist
+  */
+  generate: {
+    routes: [
+      '/blog/1',
+      '/blog/2',
+      '/blog/3'
+    ]
+
   },
 
   /*
