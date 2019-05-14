@@ -30,10 +30,8 @@
 </template>
 
 <script>
-  import axios from "~/plugins/axios";
   import RbUButtonIcon from "~/components/ButtonIcon.vue";
   import RbUButtonTextIcon from "~/components/ButtonTextIcon.vue";
-  import RbUField from "~/components/Field.vue";
   import RbUForm from "~/components/Form.vue";
   import RbUInputText from "~/components/InputText.vue";
 
@@ -42,7 +40,6 @@
     components: {
       RbUButtonIcon,
       RbUButtonTextIcon,
-      RbUField,
       RbUForm,
       RbUInputText
     },
@@ -56,7 +53,6 @@
       toggleNavBar() {
         this.navBar  = !this.navBar;
       },
-
       searchAction() {
         console.log(this.search);
       }
