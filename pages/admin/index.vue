@@ -5,7 +5,7 @@
     <p></p>
     <ul v-if="!loading">
       <li v-for="article in articles" :key="article.id">
-        <span>{{article.title}}</span> <nuxt-link :to="{name: 'admin-edit-id', params: {id: article.id}}">Modifier l'article</nuxt-link>
+        <span>{{article.title}}</span> <nuxt-link :to="{name: 'admin-edit-id', params: {id: article.id}}" class="btn -theme-primary -format-small"><Icon name="edit"></Icon></nuxt-link>
         <RbUButtonIcon @click="remove(article)" iconSize="small" iconName="trash-2" iconStrokeWidth="2" />
       </li>
     </ul>
@@ -17,11 +17,13 @@
   import axios from "~/plugins/axios";
   import RbUButtonIcon from "~/components/ButtonIcon";
   import RbUSpinner from "~/components/Spinner"
+  import Icon from "~/components/Icon";
 
   export default {
     components: {
       RbUButtonIcon,
-      RbUSpinner
+      RbUSpinner,
+      Icon
     },
     async asyncData() {
       const { data } = await axios.get('/article');
