@@ -25,7 +25,6 @@
     },
     async asyncData() {
       const { data } = await axios.get('/article');
-      console.log(data);
       return {
         loading: false,
         articles: data
