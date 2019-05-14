@@ -3,7 +3,9 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation" @click="toggleNavBar">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <nuxt-link class="nav-brand" :to="{name: 'index'}">NavBar <span class="sr-only"></span></nuxt-link>
+    <nuxt-link class="nav-brand" :to="{name: 'blog'}">
+      <img src="images/logo.png" alt="Rainbow Unicorn" style="max-height: 80px;">
+    </nuxt-link>
 
     <div :class="`collapse navbar-collapse ${navBar && 'show'}`" id="navbarTogglerDemo03">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
