@@ -52,7 +52,6 @@
       }
     },
     head() {
-      console.log(this.article)
       return {
         title: this.article.title ? `Modier l'article ${this.article.title}` : 'Nouvel article'
       }

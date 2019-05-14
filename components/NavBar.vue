@@ -17,25 +17,42 @@
           <nuxt-link :class="`nav-link ${$route.name === 'admin' && 'active'}`" :to="{name: 'admin'}">Admin <span class="sr-only">(current)</span></nuxt-link>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
+        <RbUForm @submit="searchAction" class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" v-model="search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </RbUForm>
     </div>
   </nav>
 </template>
 
 <script>
+  import axios from "~/plugins/axios";
+  import RbUButtonTextIcon from "~/components/ButtonTextIcon.vue";
+  import RbUField from "~/components/Field.vue";
+  import RbUForm from "~/components/Form.vue";
+  import RbUInputText from "~/components/InputText.vue";
+
   export default {
     name: 'NavBar',
+    components: {
+      RbUButtonTextIcon,
+      RbUField,
+      RbUForm,
+      RbUInputText
+    },
     data() {
       return {
-        navBar: false
+        navBar: false,
+        search: ""
       }
     },
     methods: {
       toggleNavBar() {
         this.navBar  = !this.navBar;
+      },
+
+      searchAction() {
+        console.log(this.search);
       }
     }
   };
