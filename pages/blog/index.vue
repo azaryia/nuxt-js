@@ -28,7 +28,10 @@
     },
     head() {
       return {
-        title: 'Articles'
+        title: 'Articles',
+        meta: [
+          { hid: 'description', name: 'description', content: 'Pour les passionnés des licornes "Arc-en-ciel", venez décourvir notre superbe blog "Rainbow Unicorne" rempli de pailletes'}
+        ]
       }
     }
   };

@@ -40,7 +40,10 @@
     },
     head() {
       return {
-        title: 'Articles'
+        title: 'Articles',
+        meta: [
+          { hid: 'description', name: 'description', content: 'Liste des articles à modifier' }
+        ]
       }
     },
     methods: {

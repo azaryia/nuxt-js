@@ -11,7 +11,10 @@
     },
     head() {
       return {
-        title: `Nouveau article`
+        title: `Nouveau article`,
+        meta: [
+          { hid: 'description', name: 'description', content: 'Création d\'un nouvel article pour notre superbe blog "RainBow Unicorn"' }
+        ]
       }
     }
   };
