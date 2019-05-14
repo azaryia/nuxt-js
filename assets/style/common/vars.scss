@@ -95,10 +95,15 @@ $style-vars: addStyleVars($border-widths, 'border-width');
 
 // Colors
 // ==================================================================
-$color-default        : initVar('color-default', #363636);
+$color-default        : initVar('color-default', #FF639C);
 $color-default-reverse: initVar('color-default-reverse', #f7f7f7);
-$color-primary        : initVar('color-primary', #a89cd6);
-$color-secondary      : initVar('color-secondary', #72a5ca);
+$color-primary        : initVar('color-primary', #FCABCA);
+$color-secondary      : initVar('color-secondary', #73DFFF);
+$color-1              : initVar('color-1', #FF9D70);
+$color-2              : initVar('color-2', #58FFBC);
+$color-3              : initVar('color-3', #8488F7);
+$color-4              : initVar('color-4', #D4FF75);
+$color-5              : initVar('color-5', #FFE86E);
 
 $colors: (
   transparent    : transparent,
@@ -116,7 +121,13 @@ $colors: (
   warning        : initVar('color-warning', #ffb150),
   facebook       : #4267b2,
   google         : #EA4335,
-  twitter        : #87CCED
+  twitter        : #87CCED,
+  1              : $color-1,
+  2              : $color-2,
+  3              : $color-3,
+  4              : $color-4,
+  5              : $color-5,
+  6              : #d43f76
 );
 
 $extra-colors: (
@@ -142,7 +153,13 @@ $btn-colors: initVar('btn-colors', (
   warning
   facebook,
   google,
-  twitter
+  twitter,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6
 ));
 
 
