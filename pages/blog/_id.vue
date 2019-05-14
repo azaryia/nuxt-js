@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <h2>Article n° {{currentArticle.id}} - {{currentArticle.title}}</h2>
     <p>{{currentArticle.text}}</p>
     <nuxt-link :to="{name: 'blog'}"><button>Retour</button></nuxt-link>

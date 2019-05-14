@@ -2,7 +2,7 @@
   "article": [
     {
       "id": 1,
-      "title": "Test Théorie du complot : les licornes n'existent pas !",
+      "title": "Théorie du complot : les licornes n'existent pas !",
       "text": "D'après quelques personnes, les licornes seraients des animaux fictifs. lol."
     },
     {
@@ -19,6 +19,11 @@
       "title": "Hello unicorn",
       "text": "whaouh, it's very nice pink cat",
       "id": 4
+    },
+    {
+      "title": "Test 2",
+      "text": "Test 2",
+      "id": 5
     }
   ]
 }
