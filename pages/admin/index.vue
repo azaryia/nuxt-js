@@ -5,7 +5,7 @@
     <p></p>
     <ul v-if="!loading">
       <li v-for="article in articles" :key="article.id">
-        <span>{{article.title}}</span> <nuxt-link :to="{name: 'admin-edit', params: {id: article.id}}">Modifier l'article</nuxt-link>
+        <span>{{article.title}}</span> <nuxt-link :to="{name: 'admin-edit-id', params: {id: article.id}}">Modifier l'article</nuxt-link>
         <RbUButtonIcon @click="remove(article)" iconSize="small" iconName="trash-2" iconStrokeWidth="2" />
       </li>
     </ul>

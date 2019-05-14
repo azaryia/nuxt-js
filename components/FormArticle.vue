@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>{{article.title ? `Modier l'article ${article.title}` : 'Nouvel article'}}</h2>
+    <h2>{{currentArticle ? `Modier l'article ${currentArticle.title}` : 'Nouvel article'}}</h2>
     <RbUForm @submit="addArticle">
       <RbUField label="Titre">
         <RbUInputText v-model="article.title" required />
@@ -17,6 +17,7 @@
 </template>
 
 <script>
+  import _ from "lodash";
   import axios from "~/plugins/axios";
   import RbUButtonTextIcon from "~/components/ButtonTextIcon.vue";
   import RbUField from "~/components/Field.vue";
@@ -25,22 +26,15 @@
   import RbUInputTextArea from "~/components/InputTextArea.vue";
 
   export default {
-    async asyncData({params}) {
-      if (params.id) {
-        console.log(params);
-        const { data } = await axios.get(`/article/${params.id}`);
-        console.log(data);
-        return {
-          article: data
-        }
-      }
-    },
     components: {
       RbUButtonTextIcon,
       RbUField,
       RbUForm,
       RbUInputText,
       RbUInputTextArea
+    },
+    props: {
+      currentArticle: Object
     },
     data() {
       return {
@@ -51,10 +45,9 @@
         errors: []
       }
     },
-    head() {
-      console.log(this.article)
-      return {
-        title: this.article.title ? `Modier l'article ${this.article.title}` : 'Nouvel article'
+    mounted() {
+      if (this.currentArticle && this.currentArticle.id) {
+        this.article = _.cloneDeep(this.currentArticle);
       }
     },
     methods: {
