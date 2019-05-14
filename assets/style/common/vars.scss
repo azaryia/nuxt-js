@@ -1,0 +1,326 @@
+// ==================================================================
+// VARS
+// Screen sizes
+// Z-indexes
+// Grid
+// Style vars
+// Border radius
+// Border widths
+// Colors
+// Btn colors
+// Font-families
+// Font-sizes
+// Font-weights
+// Letter-spacings
+// Line-heights
+// Input heights
+// Spaces-hz
+// Spaces-vt
+// Content widths
+// Percentages
+// ==================================================================
+
+
+
+// ==================================================================
+// VARS
+// ==================================================================
+
+
+// Screen sizes
+// ==================================================================
+$screen-sizes: initVar('screen-sizes', (
+  xs: screen and (max-width : 767px),
+  sm: screen and (min-width : 768px),
+  md: screen and (min-width : 1024px),
+  lg: screen and (min-width : 1280px)
+));
+
+
+// Z-indexes
+// ==================================================================
+$z-indexes: initVar('z-indexes', ('app-toast-manager', 'view-drag-drop', 'modal-manager', 'sidebar'));
+
+
+// Grid
+// ==================================================================
+$grid-num-tracks: initVar('grid-num-tracks', 13);
+
+
+// Style vars
+// ==================================================================
+$input-padding-left-multiplier: initVar('input-padding-left-multiplier', 0.33);
+
+$style-vars: (
+  font-primary-padding-top   : initVar('font-primary-padding-top', 0),
+  font-scale-y               : initVar('font-scale-y', scaleY(1.15)),
+  input-checkbox-size-default: initVar('input-checkbox-size-default', 2rem),
+  navigation-bar-height      : initVar('navigation-bar-height', (
+    xs: 5rem,
+    sm: 7rem
+  )),
+  sidebar-app-left-width     : initVar('sidebar-app-left-width', 26rem),
+  sidebar-space-vt           : initVar('sidebar-space-vt', 1.5rem),
+  sidebar-space-hz           : initVar('sidebar-space-hz', 1.5rem),
+  tabs-height                : initVar('tabs-height', (
+    xs: 5rem,
+    sm: 6rem
+  )),
+  toolbar-expandable-space-vt: initVar('toolbar-expandable-space-vt', 2.4rem),
+  transition-d-slide         : initVar('transition-d-slide', 400ms),
+  transition-tf-slide        : initVar('transition-tf-slide', unquote('cubic-bezier(0.19, 1, 0.22, 1)'))
+);
+
+
+// Border radius
+// ==================================================================
+$border-radius: initVar('border-radius', (
+  0      : 0,
+  default: 0.4rem,
+  50     : 50%
+));
+
+$style-vars: addStyleVars($border-radius, 'border-radius');
+
+
+// Border widths
+// ==================================================================
+$border-widths: initVar('border-widths', (
+  0      : 0,
+  default: 0.1rem
+));
+
+$style-vars: addStyleVars($border-widths, 'border-width');
+
+
+// Colors
+// ==================================================================
+$color-default        : initVar('color-default', #363636);
+$color-default-reverse: initVar('color-default-reverse', #f7f7f7);
+$color-primary        : initVar('color-primary', #a89cd6);
+$color-secondary      : initVar('color-secondary', #72a5ca);
+
+$colors: (
+  transparent    : transparent,
+  default        : $color-default,
+  default-reverse: $color-default-reverse,
+  primary        : $color-primary,
+  secondary      : $color-secondary,
+  bar            : initVar('color-bar', transparentize(darken($color-primary, 60), 0.98)),
+  border         : initVar('color-border', #e1e1e1),
+  background     : initVar('color-background', #f3f5f5),
+  meta           : initVar('color-meta', #adadad),
+  destructive    : initVar('color-destructive', #ff5451),
+  info           : initVar('color-info', #9bbbd6),
+  success        : initVar('color-success', #9bd6a5),
+  warning        : initVar('color-warning', #ffb150),
+  facebook       : #4267b2,
+  google         : #EA4335,
+  twitter        : #87CCED
+);
+
+$extra-colors: (
+  sidebar-color           : initVar('sidebar-color', $color-default-reverse),
+  sidebar-border-color    : initVar('sidebar-border-color', lighten($color-default, 6)),
+  sidebar-background-color: initVar('sidebar-background-color', $color-default)
+);
+
+$style-vars: addStyleVars($colors, 'color');
+$style-vars: addStyleVars($extra-colors);
+
+
+// Btn colors
+// ==================================================================
+$btn-colors: initVar('btn-colors', (
+  default-reverse,
+  primary,
+  secondary,
+  meta,
+  destructive,
+  info,
+  success,
+  warning
+  facebook,
+  google,
+  twitter
+));
+
+
+// Font-families
+// ==================================================================
+$font-families: initVar('font-families', (
+  primary: unquote('Nunito, sans-serif')
+));
+
+$style-vars: addStyleVars($font-families, 'font-family');
+
+
+// Font-sizes
+// ==================================================================
+$font-sizes: initVar('font-sizes', (
+  xxsmall: 1rem,
+  xsmall : 1.2rem,
+  small  : 1.4rem,
+  default: 1.6rem,
+  medium : 1.8rem,
+  xmedium: 2rem,
+  large  : 2.4rem,
+  xlarge : 2.8rem,
+  xxlarge: 3.2rem
+));
+
+$style-vars: addStyleVars($font-sizes, 'font-size');
+
+
+// Font-weights
+// ==================================================================
+$font-weights: initVar('font-weights', (
+  thin      : 200,
+  light     : 300,
+  regular   : 400,
+  medium    : 600,
+  bold      : 700,
+  extra-bold: 800,
+  black     : 900
+));
+
+$style-vars: addStyleVars($font-weights, 'font-weight');
+
+
+// Letter-spacings
+// ==================================================================
+$letter-spacings: initVar('letter-spacings', (
+  normal: normal
+));
+
+$style-vars: addStyleVars($letter-spacings, 'letter-spacing');
+
+
+// Line-heights
+// ==================================================================
+$line-heights: initVar('line-heights', (
+  small  : 1.2,
+  default: 1.4,
+  medium : 1.5
+));
+
+$style-vars: addStyleVars($line-heights, 'line-height');
+
+
+// Input heights
+// ==================================================================
+$input-heights: initVar('input-heights', (
+  xsmall : 2.5rem,
+  small  : 3.5rem,
+  default: 5rem
+));
+
+$style-vars: addStyleVars($input-heights, 'input-height');
+
+
+// Spaces-hz
+// ==================================================================
+$space-hz-default: (
+  default: 1.5rem,
+  sm     : 2rem
+);
+
+$spaces-hz: initVar('spaces-hz', (
+  xxsmall : (
+    default: 0.2rem,
+    sm     : 0.3rem
+  ),
+  xsmall : (
+    default: 0.4rem,
+    sm     : 0.6rem
+  ),
+  small  : (
+    default: 0.8rem,
+    sm     : 1.2rem
+  ),
+  default: $space-hz-default,
+  medium : (
+    default: 2.5rem,
+    sm     : 3rem
+  ),
+  large  : (
+    default: 3.5rem,
+    sm     : 4rem
+  ),
+  xlarge : (
+    default: 5rem,
+    sm     : 6rem
+  )
+));
+
+$space-hz-extra: (
+  table-cell-hz-padding: initVar('table-cell-hz-padding', $space-hz-default)
+);
+
+$style-vars: addStyleVars($spaces-hz, 'space-hz');
+$style-vars: addStyleVars($space-hz-extra);
+
+
+// Spaces-vt
+// ==================================================================
+$space-vt-default: (
+  default: 1.5rem,
+  sm     : 2.4rem
+);
+
+$spaces-vt: initVar('spaces-vt', (
+  xxsmall : (
+    default: 0.2rem,
+    sm     : 0.3rem
+  ),
+  xsmall : (
+    default: 0.4rem,
+    sm     : 0.6rem
+  ),
+  small  : (
+    default: 0.8rem,
+    sm     : 1.2rem
+  ),
+  default: $space-vt-default,
+  medium : (
+    default: 2.4rem,
+    sm     : 3.6rem
+  ),
+  large  : (
+    default: 3.6rem,
+    sm     : 4.8rem
+  ),
+  xlarge : (
+    default: 4.8rem,
+    sm     : 6rem
+  )
+));
+
+$space-vt-extra: (
+  table-cell-vt-padding: initVar('table-cell-vt-padding', $space-vt-default)
+);
+
+$style-vars: addStyleVars($spaces-vt, 'space-vt');
+$style-vars: addStyleVars($space-vt-extra);
+
+
+// Content widths
+// ==================================================================
+$content-widths: initVar('content-widths', (
+  small  : 90rem,
+  default: 110rem
+));
+
+$style-vars: addStyleVars($content-widths, 'content-width');
+
+
+@include generateStyleVars($style-vars, $screen-sizes);
+
+
+
+// Percentages
+// ==================================================================
+$percentages-step             : initVar('percentages-step', 5);
+$percentages-additional-values: initVar('percentages-additional-values', (
+  '1-3': 33.3333333333
+));

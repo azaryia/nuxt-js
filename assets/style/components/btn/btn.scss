@@ -1,0 +1,223 @@
+// ==================================================================
+// COMPONENT
+// btn
+//   -theme-[all btn colors]
+//   -format-square
+//   -format-square-[all input heights without default]
+//   -format-[all input heights without default]
+//   __image-wrapper
+//     -before
+//     -after
+//   __image
+//     -default
+//     -hover
+//
+// btn--ghost
+//   -theme-[all btn colors]
+//   __image-wrapper
+//   __image
+//
+// btn--alt
+//   -theme-[all btn colors]
+//   -padding-hz-none
+//   __image-wrapper
+//   __image
+//
+// btn--navbar
+//
+// btn--navbar-action
+//
+// btn--corner
+// BREAKPOINTS
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+
+
+// btn
+// ==================================================================
+.btn {
+  font-size: var(--font-size-default);
+  text-align: center;
+  color: var(--color-default-reverse);
+  background-color: var(--color-default);
+  border: var(--border-width-default) solid transparent;
+  border-radius: var(--border-radius-default);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  cursor: pointer;
+  padding: 0 calc(var(--input-height-default) * #{$input-padding-left-multiplier});
+  height: var(--input-height-default);
+
+  @each $color in $btn-colors
+  {
+    &.-theme-#{$color} {
+      background-color: var(--color-#{$color});
+
+      @if $color == 'default-reverse'
+      {
+        color: var(--color-primary);
+      }
+    }
+  }
+
+  &[class*="-format-square"] {
+    padding: {
+      right: 0;
+      left: 0;
+    }
+  }
+
+  &.-format-square {
+    width: var(--input-height-default);
+  }
+
+  @each $format in map_keys($input-heights)
+  {
+    @if $format != 'default'
+    {
+      &.-format-square-#{$format} {
+        width: var(--input-height-#{$format});
+        height: var(--input-height-#{$format});
+      }
+
+      &.-format-#{$format} {
+        font-size: var(--font-size-#{$format});
+        padding: {
+          right: calc(var(--input-height-#{$format}) * #{$input-padding-left-multiplier});
+          left: calc(var(--input-height-#{$format}) * #{$input-padding-left-multiplier});
+        }
+        height: var(--input-height-#{$format});
+      }
+    }
+  }
+
+  @include hover() {
+
+
+    .btn__image {
+
+      &.-default {
+        width: 0;
+        height: 0;
+      }
+
+      &.-hover {
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+
+
+  &__image-wrapper {
+    flex-shrink: 0;
+    height: 100%;
+
+    &.-before {
+      margin-right: 0.5em;
+    }
+
+    &.-after {
+      margin-left: 0.5em;
+    }
+  }
+
+
+  &__image {
+    max-height: 100%;
+
+    &.-hover {
+      width: 0;
+      height: 0;
+    }
+  }
+}
+
+
+// btn--ghost
+// ==================================================================
+.btn--ghost {
+  @extend .btn;
+  @include extendChildren(btn, (image-wrapper, image));
+  color: var(--color-default);
+  background-color: transparent;
+  border-color: var(--color-default);
+
+  &[class*="-theme-"] {
+    background-color: transparent;
+  }
+
+  @each $color in $btn-colors
+  {
+    &.-theme-#{$color} {
+      color: var(--color-#{$color});
+      border-color: var(--color-#{$color});
+    }
+  }
+}
+
+
+// btn--alt
+// ==================================================================
+.btn--alt {
+  @extend .btn--ghost;
+  @include extendChildren(btn--ghost, (image-wrapper, image));
+  border-color: transparent;
+
+  &[class*="-theme-"] {
+    border-color: transparent;
+  }
+
+  &.-padding-hz-none {
+    padding: {
+      right: 0;
+      left: 0;
+    }
+  }
+}
+
+
+// btn--navbar
+// ==================================================================
+.btn--navbar {
+  @extend .btn--alt;
+}
+
+
+// btn--navbar-action
+// ==================================================================
+.btn--navbar-action {
+  @extend .btn;
+  font-size: var(--font-size-small);
+  margin-left: var(--space-hz-small);
+  padding: {
+    right: calc(var(--input-height-xsmall) * #{$input-padding-left-multiplier});
+    left: calc(var(--input-height-xsmall) * #{$input-padding-left-multiplier});
+  }
+  height: var(--input-height-xsmall);
+}
+
+
+// btn--corner
+// ==================================================================
+.btn--corner {
+  @extend .btn;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 2;
+}
+
+
+
+// ==================================================================
+// BREAKPOINTS
+// ==================================================================
+@import "btn--xs";

@@ -1,0 +1,213 @@
+// ==================================================================
+// COMPONENT
+// input
+//   -format-[all input heights without default]
+//
+// input--alt
+//
+// input--translucent
+//
+// input--list-search
+//
+// input--toolbar
+//
+// input--textarea
+//
+// input--select
+//   __option
+//     -disabled
+//
+// input--select-calendar
+//   __option
+//
+// input--color
+//
+// input--copy-text
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+
+
+// input
+// ==================================================================
+.input {
+  font-weight: var(--font-weight-regular);
+  color: var(--color-default);
+  border: 0.1rem solid var(--color-border);
+  border-radius: var(--border-radius-default);
+  background-color: var(--color-default-reverse);
+  padding-left: calc(var(--input-height-default) * #{$input-padding-left-multiplier});
+  width: 100%;
+  height: var(--input-height-default);
+  transition: border-color 300ms;
+
+  @each $format in map_keys($input-heights)
+  {
+    @if $format != 'default'
+    {
+      &.-format-#{$format} {
+        font-size: var(--font-size-#{$format});
+        padding-left: calc(var(--input-height-#{$format}) * #{$input-padding-left-multiplier});
+        height: var(--input-height-#{$format});
+      }
+    }
+  }
+
+  &:focus {
+    border-color: var(--color-default);
+  }
+
+  // Placeholder
+  @include placeholder(var(--color-meta));
+}
+
+
+// input--alt
+// ==================================================================
+.input--alt {
+  @extend .input;
+  border: none;
+  background-color: transparent;
+  padding-left: 0;
+}
+
+
+// input--translucent
+// ==================================================================
+.input--translucent {
+  @extend .input;
+  color: var(--color-default-reverse);
+  border-color: transparent;
+  background-color: transparentize($color-default-reverse, 0.85);
+
+  &:focus {
+    border-color: var(--color-default-reverse);
+  }
+
+  // Placeholder
+  @include placeholder(transparentize($color-default-reverse, 0.3));
+}
+
+
+// input--list-search
+// ==================================================================
+.input--list-search {
+  @extend .input;
+  border: none;
+  border-bottom: 0.1rem solid var(--color-border);
+  border-radius: 0;
+  padding-left: var(--space-hz-default);
+
+  &:focus {
+    border-bottom-color: var(--color-border);
+  }
+}
+
+
+// input--toolbar
+// ==================================================================
+.input--toolbar {
+  @extend .input--alt;
+  padding-left: calc(var(--input-height-small) * #{$input-padding-left-multiplier});
+  height: var(--input-height-small);
+}
+
+
+// input--textarea
+// ==================================================================
+.input--textarea {
+  @extend .input;
+  resize: vertical;
+  padding-top: calc(var(--input-height-default) * #{$input-padding-left-multiplier} * 0.65);
+  min-height: 15rem;
+}
+
+
+// input--text-autogrow
+// ==================================================================
+.input--text-autogrow {
+  @extend .input;
+  resize: none;
+  overflow: hidden;
+  height: auto;
+  padding-top: calc(var(--input-height-default) * #{$input-padding-left-multiplier} * 0.65);
+  padding-bottom: calc(var(--input-height-default) * #{$input-padding-left-multiplier} * 0.65);
+}
+
+
+// input--select
+// ==================================================================
+.input--select {
+  @extend .input;
+  background: {
+    image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZDBkMGQwIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9ImZlYXRoZXIgZmVhdGhlci1jaGV2cm9uLWRvd24iPjxwYXRoIGQ9Ik02IDlsNiA2IDYtNiIvPjwvc3ZnPg==);
+    position: calc(100% - (var(--input-height-default) * #{$input-padding-left-multiplier} / 2)) 50%;
+    repeat: no-repeat;
+  }
+  cursor: pointer;
+  padding-right: 3.6rem;
+
+  &:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 var(--color-default);
+  }
+
+
+  &__option {
+
+    &.-disabled {
+      display: none;
+    }
+  }
+}
+
+
+// input--select-calendar
+// ==================================================================
+.input--select-calendar {
+  @extend .input--select;
+  @include extendChildren('input--select', ('option'));
+  font: {
+    size: var(--font-size-small);
+    weight: var(--font-weight-bold);
+  }
+  color: var(--color-default);
+  border: none;
+  background: {
+    color: transparentize($color-default, 0.97);
+    size: 1.5rem;
+  }
+  padding-right: 2.8rem;
+}
+
+
+// input--color
+// ==================================================================
+.input--color {
+  @extend .input;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 0;
+
+  &::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+
+  &::-webkit-color-swatch {
+    border: none;
+  }
+}
+
+
+// input--copy-text
+// ==================================================================
+.input--copy-text {
+  @extend .input;
+  font-size: var(--font-size-default);
+  line-height: var(--input-height-default);
+  background: transparent;
+}

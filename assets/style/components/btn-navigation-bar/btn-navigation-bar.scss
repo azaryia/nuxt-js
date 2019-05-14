@@ -1,0 +1,24 @@
+// ==================================================================
+// COMPONENT
+// btn-navigation-bar
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+.btn-navigation-bar {
+  color: var(--color-default);
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 5rem;
+
+  &.-width-small {
+    width: 3.5rem;
+  }
+}

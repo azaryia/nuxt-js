@@ -1,0 +1,49 @@
+@include screenSize(xs) {
+
+  // ==================================================================
+  // COMPONENT
+  // view
+  //   __main-content
+  //     __extra
+  //       -visible
+  //     __extra--left
+  //     __extra--right
+  // ==================================================================
+
+
+
+  // ==================================================================
+  // COMPONENT
+  // ==================================================================
+  .view {
+
+
+    &__main-content {
+
+
+      &__extra {
+        background-color: var(--color-default-reverse);
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        transition: transform var(--transition-d-slide) var(--transition-tf-slide);
+
+        &.-visible {
+          transform: translateX(0);
+        }
+
+
+        &--left {
+          transform: translateX(-100%);
+        }
+
+
+        &--right {
+          transform: translateX(100%);
+        }
+      }
+    }
+  }
+}

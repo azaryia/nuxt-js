@@ -1,0 +1,80 @@
+// ==================================================================
+// COMPONENT
+// label
+//
+// label--field
+//
+// label--field-long
+//
+// label--fieldset
+//
+// label--input-image
+//
+// label--day
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+
+
+// label
+// ==================================================================
+.label {
+  font: {
+    size: var(--font-size-small);
+    weight: var(--font-weight-bold);
+  }
+  text-transform: uppercase;
+  color: var(--color-meta);
+  display: inline-block;
+  transform: var(--font-scale-y);
+}
+
+
+// label--field
+// ==================================================================
+.label--field {
+  @extend .label;
+  padding-bottom: var(--space-vt-xsmall);
+}
+
+
+// label--field-long
+// ==================================================================
+.label--field-long {
+  @extend .label--field;
+  font-size: var(--font-size-default);
+  text-transform: none;
+  transform: none;
+}
+
+
+// label--fieldset
+// ==================================================================
+.label--fieldset {
+  @extend .label;
+  font: {
+    size: calc(var(--font-size-small) * 1.1);
+    weight: var(--font-weight-extra-bold);
+  }
+}
+
+
+// label--input-image
+// ==================================================================
+.label--input-image {
+  @extend .label;
+  text-align: center;
+  padding-top: var(--space-vt-xsmall);
+}
+
+
+// label--day
+// ==================================================================
+.label--day {
+  @extend .label;
+  text-transform: none;
+}

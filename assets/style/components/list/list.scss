@@ -1,0 +1,222 @@
+// ==================================================================
+// COMPONENT
+// list
+//   -space-hz-[all spaces-hz values without default]
+//   -space-vt-[all spaces-vt values without default]
+//   -direction-row
+//   __item
+//     __inner
+//     __main-content
+//     __extra
+//       -left
+//       -right
+//
+// list--bordered
+//   -space-hz-[all spaces-hz values without default]
+//   -space-vt-[all spaces-vt values without default]
+//   -direction-row
+//   __item
+//     __inner
+//     __main-content
+//     __extra
+//
+// list--sidebar
+//   __item
+//     __inner
+//       -current-exact
+//     __main-content
+//     __extra
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+
+
+// list
+// ==================================================================
+.list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: calc(-1 * var(--space-vt-default)) calc(-1 * var(--space-hz-default));
+
+  @each $size in map_keys($spaces-hz) {
+
+    @if $size != 'default' {
+
+      &.-space-hz-#{$size} {
+        margin: {
+          right: calc(-1 * var(--space-hz-#{$size}));
+          left: calc(-1 * var(--space-hz-#{$size}));
+        }
+
+
+        > .list__item {
+
+
+          > .list__item__inner {
+            padding: {
+              right: var(--space-hz-#{$size});
+              left: var(--space-hz-#{$size});
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @each $size in map_keys($spaces-vt) {
+
+    @if $size != 'default' {
+
+      &.-space-vt-#{$size} {
+        margin: {
+          top: calc(-1 * var(--space-vt-#{$size}));
+          bottom: calc(-1 * var(--space-vt-#{$size}));
+        }
+
+
+        > .list__item {
+
+
+          > .list__item__inner {
+            padding: {
+              top: var(--space-vt-#{$size});
+              bottom: var(--space-vt-#{$size});
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.-direction-row {
+    flex-direction: row;
+  }
+
+
+  > .list__item {
+
+
+    > .list__item__inner {
+      font-size: inherit;
+      text-align: left;
+      color: inherit;
+      border: none;
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      padding: var(--space-vt-default) var(--space-hz-default);
+      width: 100%;
+    }
+
+
+    .list__item__main-content {
+      display: flex;
+      align-items: flex-start;
+      flex: 1;
+      flex-direction: column;
+      position: relative;
+    }
+
+
+    .list__item__extra {
+      display: flex;
+      align-items: center;
+
+      &.-left {
+        padding-right: 1rem;
+      }
+
+      &.-right {
+        padding-left: 1rem;
+      }
+    }
+  }
+}
+
+
+// list--bordered
+// ==================================================================
+.list--bordered {
+  @extend .list;
+  @include extendChildren('list', ('item'), '> .list--bordered');
+  margin: 0;
+
+  @each $size in map_keys($spaces-hz) {
+
+    @if $size != 'default' {
+
+      &.-space-hz-#{$size} {
+        margin: {
+          right: 0;
+          left: 0;
+        }
+      }
+    }
+  }
+
+  @each $size in map_keys($spaces-vt) {
+
+    @if $size != 'default' {
+
+      &.-space-vt-#{$size} {
+        margin: {
+          top: 0;
+          bottom: 0;
+        }
+      }
+    }
+  }
+
+  &.-direction-row {
+    flex-direction: row;
+
+
+    > .list--bordered__item {
+
+      &:not(:last-child) {
+        border-right: 0.1rem solid var(--color-border);
+        border-bottom: none;
+      }
+    }
+  }
+
+
+  > .list--bordered__item {
+    @include extendChildren('list__item', ('inner', 'main-content', 'extra'), '> .list--bordered__item');
+
+    &:not(:last-child) {
+      border-bottom: 0.1rem solid var(--color-border);
+    }
+  }
+}
+
+
+// list--sidebar
+// ==================================================================
+.list--sidebar {
+  @extend .list--bordered;
+  @include extendChildren('list--bordered', ('item'), '> .list--sidebar');
+
+
+  > .list--sidebar__item {
+    @include extendChildren('list--bordered__item', ('inner', 'main-content', 'extra'), '> .list--sidebar__item');
+
+    &:not(:last-child) {
+      border-bottom-color: var(--sidebar-border-color)
+    }
+
+
+    > .list--sidebar__item__inner {
+      padding: var(--sidebar-space-vt) var(--sidebar-space-hz);
+
+      &.-current-exact {
+        background-color: var(--sidebar-border-color);
+      }
+    }
+  }
+}

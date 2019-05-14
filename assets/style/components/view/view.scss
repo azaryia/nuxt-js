@@ -1,0 +1,132 @@
+// ==================================================================
+// COMPONENT
+// view
+//   -header-border-bottom-none
+//   __header
+//   __main-content
+//     __inner
+//     __extra
+//     __extra--left
+//     __extra--right
+//   __footer
+//
+// view--promise
+//   __main-content
+//     __inner
+//
+// view--filters
+//   __main-content
+//     __inner
+//   __footer
+// BREAKPOINTS
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+
+
+// view
+// ==================================================================
+.view {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+
+  &.-header-border-bottom-none {
+
+
+    > .view__header {
+      border-bottom: none;
+    }
+  }
+
+
+  &__header {
+    box-shadow: 0 0.1rem 1rem 0 var(--color-shadow);
+    border-bottom: 0.1rem solid var(--color-border);
+    position: relative;
+    z-index: 2;
+  }
+
+
+  &__main-content {
+    display: flex;
+    flex: 1;
+    position: relative;
+    z-index: 1;
+
+
+    &__inner, &__extra {
+      display: flex;
+      flex-direction: column;
+      overflow: {
+        x: hidden;
+        y: auto;
+      }
+      -webkit-overflow-scrolling: touch;
+    }
+
+
+    &__inner {
+      flex: 1;
+    }
+
+
+    &__extra--left, &__extra--right {
+      @extend .view__main-content__extra;
+    }
+  }
+
+
+  &__footer {
+    box-shadow: 0 -0.1rem 1rem 0 var(--color-shadow);
+    border-top: 0.1rem solid var(--color-border);
+    background-color: var(--color-bar);
+    position: relative;
+    z-index: 2;
+    padding: var(--space-vt-small) var(--space-hz-default);
+  }
+}
+
+
+// view--promise
+// ==================================================================
+.view--promise {
+  @extend .view;
+  @include extendChildren(view, (main-content));
+
+
+  &__main-content {
+    @include extendChildren(view__main-content, (inner));
+  }
+}
+
+
+// view--filters
+// ==================================================================
+.view--filters {
+  @extend .view;
+  @include extendChildren(view, (main-content, footer));
+
+
+  &__main-content {
+    @include extendChildren(view__main-content, (inner));
+  }
+
+
+  &__footer {
+    background-color: var(--color-default-reverse);
+  }
+}
+
+
+
+// ==================================================================
+// BREAKPOINTS
+// ==================================================================
+@import "view--xs";
+@import "view--sm";

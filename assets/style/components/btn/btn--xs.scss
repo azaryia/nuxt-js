@@ -1,0 +1,57 @@
+@include screenSize(xs) {
+
+  // ==================================================================
+  // COMPONENT
+  // btn--navbar
+  //   -format-small
+  //
+  // btn--navbar-action
+  // ==================================================================
+
+
+
+  // ==================================================================
+  // COMPONENT
+  // ==================================================================
+
+
+  // btn--navbar
+  // ==================================================================
+  .btn--navbar {
+    height: 100%;
+    padding: {
+      right: var(--space-hz-default);
+      left: var(--space-hz-default);
+    }
+
+    &.-format-small {
+      padding: {
+        right: 0;
+        left: 0;
+      }
+      width: 3rem;
+      height: 100%;
+    }
+  }
+
+
+  // btn--navbar-action
+  // ==================================================================
+  .btn--navbar-action {
+    box-shadow: 0 0 0.6rem 0.2rem transparentize(black, 0.96);
+    border-radius: 50%;
+    font-size: 0;
+    position: fixed;
+    right: var(--space-hz-default);
+    bottom: var(--space-hz-default);
+    margin-left: 0;
+    padding: {
+      right: 0;
+      left: 0;
+    }
+    width: var(--input-height-xsmall);
+    height: var(--input-height-xsmall);
+    transform: scale(2.4);
+    transform-origin: right bottom;
+  }
+}
