@@ -1,19 +1,9 @@
 // ==================================================================
 // FONTS
-// Nunito 200
-// Nunito 200i
-// Nunito 300
-// Nunito 300i
-// Nunito 400
-// Nunito 400i
-// Nunito 600
-// Nunito 600i
-// Nunito 700
-// Nunito 700i
-// Nunito 800
-// Nunito 800i
-// Nunito 900
-// Nunito 900i
+// philosopher-regular
+// philosopher-italic
+// philosopher-700 latin
+// philosopher-700-italic latin
 // ==================================================================
 
 
@@ -23,41 +13,65 @@
 // ==================================================================
 
 
-// Nunito 200
+// philosopher-regular - latin
 // ==================================================================
 @font-face {
-  font-family: 'Nunito';
+  font-family: 'Philosopher';
   font-style: normal;
-  font-weight: 200;
-  src: local('Nunito ExtraLight'), local('Nunito-ExtraLight');
+  font-weight: 400;
+  src: url('../../static/fonts/philosopher-v10-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Philosopher Regular'), local('Philosopher-Regular'),
+  url('../../static/fonts/philosopher-v10-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../../static/fonts/philosopher-v10-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+  url('../../static/fonts/philosopher-v10-latin-regular.woff') format('woff'), /* Modern Browsers */
+  url('../../static/fonts/philosopher-v10-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('../../static/fonts/philosopher-v10-latin-regular.svg#Philosopher') format('svg'); /* Legacy iOS */
 }
 
 
-// Nunito 200i
+// philosopher-italic - latin
 // ==================================================================
 @font-face {
-  font-family: 'Nunito';
+  font-family: 'Philosopher';
   font-style: italic;
-  font-weight: 200;
-  src: local('Nunito ExtraLight Italic'), local('Nunito-ExtraLightItalic');
+  font-weight: 400;
+  src: url('../../static/fonts/philosopher-v10-latin-italic.eot'); /* IE9 Compat Modes */
+  src: local('Philosopher Italic'), local('Philosopher-Italic'),
+  url('../../static/fonts/philosopher-v10-latin-italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../../static/fonts/philosopher-v10-latin-italic.woff2') format('woff2'), /* Super Modern Browsers */
+  url('../../static/fonts/philosopher-v10-latin-italic.woff') format('woff'), /* Modern Browsers */
+  url('../../static/fonts/philosopher-v10-latin-italic.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('../../static/fonts/philosopher-v10-latin-italic.svg#Philosopher') format('svg'); /* Legacy iOS */
 }
 
 
-// Nunito 300
+// philosopher-700 - latin
 // ==================================================================
 @font-face {
-  font-family: 'Nunito';
+  font-family: 'Philosopher';
   font-style: normal;
-  font-weight: 300;
-  src: local('Nunito Light'), local('Nunito-Light');
+  font-weight: 700;
+  src: url('../../static/fonts/philosopher-v10-latin-700.eot'); /* IE9 Compat Modes */
+  src: local('Philosopher Bold'), local('Philosopher-Bold'),
+  url('../../static/fonts/philosopher-v10-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../../static/fonts/philosopher-v10-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+  url('../../static/fonts/philosopher-v10-latin-700.woff') format('woff'), /* Modern Browsers */
+  url('../../static/fonts/philosopher-v10-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('../../static/fonts/philosopher-v10-latin-700.svg#Philosopher') format('svg'); /* Legacy iOS */
 }
 
 
-// Nunito 300i
+// philosopher-700italic - latin
 // ==================================================================
 @font-face {
-  font-family: 'Nunito';
+  font-family: 'Philosopher';
   font-style: italic;
-  font-weight: 300;
-  src: local('Nunito Light Italic'), local('Nunito-LightItalic');
+  font-weight: 700;
+  src: url('../../static/fonts/philosopher-v10-latin-700italic.eot'); /* IE9 Compat Modes */
+  src: local('Philosopher Bold Italic'), local('Philosopher-BoldItalic'),
+  url('../../static/fonts/philosopher-v10-latin-700italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../../static/fonts/philosopher-v10-latin-700italic.woff2') format('woff2'), /* Super Modern Browsers */
+  url('../../static/fonts/philosopher-v10-latin-700italic.woff') format('woff'), /* Modern Browsers */
+  url('../../static/fonts/philosopher-v10-latin-700italic.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('../../static/fonts/philosopher-v10-latin-700italic.svg#Philosopher') format('svg'); /* Legacy iOS */
 }
