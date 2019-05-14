@@ -113,7 +113,7 @@ $colors: (
   secondary      : $color-secondary,
   bar            : initVar('color-bar', transparentize(darken($color-primary, 60), 0.98)),
   border         : initVar('color-border', #e1e1e1),
-  background     : initVar('color-background', #f3f5f5),
+  background     : initVar('color-background', #fff7fc),
   meta           : initVar('color-meta', #adadad),
   destructive    : initVar('color-destructive', #ff5451),
   info           : initVar('color-info', #9bbbd6),

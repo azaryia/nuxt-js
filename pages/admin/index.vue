@@ -5,8 +5,8 @@
     <p></p>
     <ul v-if="!loading">
       <li v-for="article in articles" :key="article.id">
-        <span>{{article.title}}</span> <nuxt-link :to="{name: 'admin-edit-id', params: {id: article.id}}" class="btn -theme-primary -format-small"><Icon name="edit"></Icon></nuxt-link>
-        <RbUButtonIcon @click="remove(article)" iconSize="small" iconName="trash-2" iconStrokeWidth="2" />
+        <span>{{article.title}}</span> <nuxt-link :to="{name: 'admin-edit-id', params: {id: article.id}}" class="btn -theme-3 -format-small"><Icon name="edit" strokeWidth="2" size="small" ></Icon></nuxt-link>
+        <RbUButtonIcon class="btn--ghost -theme-1 -format-small" @click="remove(article)" iconSize="small" iconName="trash-2" iconStrokeWidth="2" />
       </li>
     </ul>
     <RbUSpinner v-else utils="u-margin-bottom-medium"></RbUSpinner>
