@@ -9,17 +9,14 @@
 
     <div :class="`collapse navbar-collapse ${navBar && 'show'}`" id="navbarTogglerDemo03">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li :class="`nav-item ${$route.name === 'index' && 'active'}`">
-          <nuxt-link :class="`nav-link ${$route.name === 'index' && 'active'}`" :to="{name: 'index'}">Home <span class="sr-only">(current)</span></nuxt-link>
-        </li>
         <li :class="`nav-item ${$route.name === 'blog' && 'active'}`">
-          <nuxt-link :class="`nav-link ${$route.name === 'blog' && 'active'}`" :to="{name: 'blog'}">Blog <span class="sr-only">(current)</span></nuxt-link>
+          <nuxt-link :class="`nav-link ${$route.name === 'blog' && 'active'}`" :to="{name: 'blog'}">Accueil <span class="sr-only">(current)</span></nuxt-link>
         </li>
         <li :class="`nav-item ${$route.name === 'admin' && 'active'}`">
           <nuxt-link :class="`nav-link ${$route.name === 'admin' && 'active'}`" :to="{name: 'admin'}">Admin <span class="sr-only">(current)</span></nuxt-link>
         </li>
       </ul>
-        <RbUForm @submit="searchAction" class="form-inline my-2 my-lg-0">
+        <RbUForm @submit="searchAction" class="form-inline my-2 my-lg-0" v-if="$route.name === 'admin' || $route.name === 'blog'">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" v-model="search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </RbUForm>
