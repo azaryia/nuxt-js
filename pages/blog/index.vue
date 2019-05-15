@@ -15,7 +15,6 @@
   export default {
     async asyncData() {
       const { data } = await axios.get('/article');
-      console.log(data);
       return {
         articles: data
       }

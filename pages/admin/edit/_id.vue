@@ -10,7 +10,6 @@
     async asyncData({params}) {
       if (params.id) {
         const { data } = await axios.get(`/article/${params.id}`);
-        console.log(data);
         return {
           article: data
         }
