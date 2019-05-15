@@ -17,7 +17,7 @@
         </li>
       </ul>
     </div>
-    <RbUForm @submit="searchAction">
+    <RbUForm @submit="searchAction" v-if="$route.name === 'admin' || $route.name === 'blog'">
       <div class="u-display-flex">
         <RbUInputText type="search" placeholder="Recherche..." aria-label="Search" v-model="search" />
         <RbUButtonTextIcon class="btn -theme-5 u-color-6 u-margin-left-small" iconBefore="search" type="submit" text="Rechercher"></RbUButtonTextIcon>
