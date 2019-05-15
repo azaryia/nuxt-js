@@ -4,7 +4,7 @@
     </RbUButtonIcon>
 
     <nuxt-link class="nav-brand" :to="{name: 'blog'}">
-      <img src="images/logo.png" alt="Rainbow Unicorn" style="max-height: 80px;">
+      <img src="/images/logo.png" alt="Rainbow Unicorn" style="max-height: 80px;">
     </nuxt-link>
 
     <div :class="`collapse navbar-collapse ${navBar && 'show'} u-color-5 u-font-weight-medium u-font-size-medium u-padding-left-large`" id="navbarTogglerDemo03">
