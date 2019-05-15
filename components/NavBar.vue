@@ -18,27 +18,29 @@
       </ul>
     </div>
     <RbUForm @submit="searchAction" v-if="$route.name === 'admin' || $route.name === 'blog'">
-      <div class="u-display-flex">
-        <RbUInputText type="search" placeholder="Recherche..." aria-label="Search" v-model="search" />
-        <RbUButtonTextIcon class="btn -theme-5 u-color-6 u-margin-left-small" iconBefore="search" type="submit" text="Rechercher"></RbUButtonTextIcon>
-      </div>
+      <RbUToolbar class="u-display-flex">
+        <RbUIcon name="search" class="u-margin-right u-color-default-light"></RbUIcon>
+        <RbUInputText class="input--toolbar" type="search" placeholder="Recherche..." v-model="search" />
+      </RbUToolbar>
     </RbUForm>
   </nav>
 </template>
 
 <script>
-  import RbUButtonIcon from "~/components/ButtonIcon.vue";
-  import RbUButtonTextIcon from "~/components/ButtonTextIcon.vue";
+  import RbUButtonIcon from "~/components/ButtonIcon.vue"
   import RbUForm from "~/components/Form.vue";
+  import RbUIcon from "~/components/Icon.vue";
   import RbUInputText from "~/components/InputText.vue";
+  import RbUToolbar from "~/components/Toolbar.vue";
 
   export default {
     name: 'NavBar',
     components: {
       RbUButtonIcon,
-      RbUButtonTextIcon,
       RbUForm,
-      RbUInputText
+      RbUIcon,
+      RbUInputText,
+      RbUToolbar
     },
     data() {
       return {

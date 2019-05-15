@@ -1,27 +1,41 @@
 <template>
   <div>
-    <h2>{{title}}</h2>
-    <ul>
-      <li v-for="article in articles" :key="article.id">
-        <span><nuxt-link :to="{name: 'blog-id', params: {id: article.id}}">{{article.title}}</nuxt-link></span>
-      </li>
-    </ul>
+    <h2 class="u-padding-bottom-default">{{title}}</h2>
+    <div v-if="!loading && articles && articles.length > 0">
+      <ul>
+        <li v-for="article in articles" :key="article.id" class="u-padding-vt-small">
+          <span><nuxt-link :to="{name: 'blog-id', params: {id: article.id}}">{{article.title}}</nuxt-link></span>
+        </li>
+      </ul>
+    </div>
+    <div v-else-if="!loading && filter">
+      <p>Aucun article est disponible</p>
+    </div>
+    <div v-else class="u-display-flex u-ai-center u-jc-center">
+      <RbUSpinner class="u-margin-large"></RbUSpinner>
+    </div>
   </div>
 </template>
 
 <script>
   import axios from "~/plugins/axios";
+  import RbUSpinner from "~/components/Spinner";
   import { mapGetters } from "vuex";
 
   export default {
+    components: {
+      RbUSpinner
+    },
     async asyncData() {
       const { data } = await axios.get('/article');
       return {
-        articles: data
+        articles: data,
+        loading: false
       }
     },
     data() {
       return {
+        loading: true,
         filter: null,
         title: 'Articles arc-en-ciel',
         articles: []

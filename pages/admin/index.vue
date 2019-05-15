@@ -2,10 +2,10 @@
   <div>
     <div class="d-flex justify-content-between u-content-width-xsmall">
       <h2>{{title}}</h2>
-      <p><nuxt-link :to="{name: 'admin-edit'}" class="btn -theme-primary">Créer un article</nuxt-link></p>
+      <p><nuxt-link :to="{name: 'admin-edit'}" class="btn -theme-primary u-font-size-medium">Créer un article</nuxt-link></p>
     </div>
 
-    <div v-if="!loading">
+    <div v-if="!loading && articles && articles.length > 0">
       <div class="d-flex justify-content-between u-margin-vt-small u-content-width-xsmall" v-for="article in articles" :key="article.id">
         <span>{{article.title}}</span>
         <div>
@@ -16,14 +16,19 @@
         </div>
       </div>
     </div>
-    <RbUSpinner v-else utils="u-margin-bottom-medium"></RbUSpinner>
+    <div v-else-if="!loading && filter">
+      <p>Aucun article est disponible</p>
+    </div>
+    <div v-else class="u-display-flex u-ai-center u-jc-center">
+      <RbUSpinner class="u-margin-large"></RbUSpinner>
+    </div>
   </div>
 </template>
 
 <script>
   import axios from "~/plugins/axios";
   import RbUButtonIcon from "~/components/ButtonIcon";
-  import RbUSpinner from "~/components/Spinner"
+  import RbUSpinner from "~/components/Spinner";
   import Icon from "~/components/Icon";
   import { mapGetters } from "vuex";
 
@@ -36,8 +41,8 @@
     async asyncData() {
       const { data } = await axios.get('/article');
       return {
-        loading: false,
-        articles: data
+        articles: data,
+        loading: false
       }
     },
     data() {

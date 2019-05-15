@@ -1,0 +1,87 @@
+// ==================================================================
+// COMPONENT
+// toolbar
+//   -expandable-neighbor
+//   -expandable
+//   -expandabled
+//   __toggle
+//   __inner
+//   __main-content
+//   __extra
+//     -right
+//     -left
+// ==================================================================
+
+
+
+// ==================================================================
+// COMPONENT
+// ==================================================================
+.toolbar {
+  background-color: var(--color-bar);
+  display: flex;
+  flex-direction: column;
+
+  &.-expandable-neighbor, &.-expandable {
+
+
+    .toolbar__inner {
+      padding: {
+        top: var(--toolbar-expandable-space-vt);
+        bottom: var(--toolbar-expandable-space-vt);
+      }
+    }
+  }
+
+  &.-expandable {
+    margin-top: calc(-1 * var(--toolbar-expandable-space-vt));
+  }
+
+  &.-expanded {
+    flex-direction: column-reverse;
+
+
+    .toolbar__inner {
+      padding-bottom: 0;
+    }
+  }
+
+
+  &__toggle {
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 100%;
+    height: var(--toolbar-expandable-space-vt);
+  }
+
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    padding: var(--space-vt-small) var(--space-hz-default);
+  }
+
+
+  &__main-content {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+
+
+  &__extra {
+    display: flex;
+
+    &.-left {
+      padding-right: var(--space-hz-default);
+    }
+
+    &.-right {
+      padding-left: var(--space-hz-default);
+    }
+  }
+}

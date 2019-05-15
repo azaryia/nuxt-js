@@ -1,7 +1,7 @@
 <template>
   <div>
     <nuxt-link :to="{name: 'admin'}">
-      <button class="btn -theme-default"><Icon name="chevron-left" strokeWidth="2" size="medium" ></Icon></button>
+      <span class="btn--ghost -theme-default "><Icon name="chevron-left" strokeWidth="2" size="medium" ></Icon></span>
       <br> <br>
     </nuxt-link>
     <h2>{{currentArticle ? `Modier l'article ${currentArticle.title}` : 'Nouvel article'}}</h2>
@@ -13,7 +13,7 @@
         <RbUInputTextArea v-model="article.text" required rows="10" />
       </RbUField>
       <div slot="actions" class="u-display-flex u-jc-flex-end u-padding-top-medium">
-        <RbUButtonTextIcon modifiers="-theme-secondary" utils="u-color-default u-font-weight-bold" :text="article.id ? 'Sauvegarder' : 'Créer'" iconBefore="save" />
+        <RbUButtonTextIcon modifiers="-theme-secondary" utils="u-color-default u-font-weight-bold u-color-background" :text="article.id ? 'Sauvegarder' : 'Créer'" iconBefore="save" />
       </div>
     </RbUForm>
   </div>
