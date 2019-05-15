@@ -11,11 +11,11 @@
 
 <script>
   import axios from "~/plugins/axios";
+  import { mapGetters } from "vuex";
 
   export default {
     async asyncData() {
       const { data } = await axios.get('/article');
-      console.log(data);
       return {
         articles: data
       }
@@ -23,7 +23,8 @@
     data() {
       return {
         title: 'My Articles',
-        articles: []
+        articles: [],
+        filter: null
       }
     },
     head() {
@@ -32,6 +33,31 @@
         meta: [
           { hid: 'description', name: 'description', content: 'Pour les passionnés des licornes "Arc-en-ciel", venez décourvir notre superbe blog "Rainbow Unicorne" rempli de pailletes'}
         ]
+      }
+    },
+    computed: mapGetters({
+      search: 'search'
+    }),
+    methods: {
+      filterArticles() {
+        let vm = this;
+        this.loading = true;
+        axios.get(`/article?q=${this.filter}`)
+          .then((result) => {
+            vm.articles = [];
+            vm.articles = result.data;
+            vm.loading = false;
+          })
+          .catch((err) => {
+            console.error(err);
+            vm.loading = false;
+          });
+      }
+    },
+    watch: {
+      search: function (value) {
+        this.filter = value;
+        this.filterArticles();
       }
     }
   };

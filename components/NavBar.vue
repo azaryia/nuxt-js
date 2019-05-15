@@ -43,7 +43,7 @@
     data() {
       return {
         navBar: false,
-        search: ""
+        search: null
       }
     },
     methods: {
@@ -51,7 +51,12 @@
         this.navBar  = !this.navBar;
       },
       searchAction() {
-        console.log(this.search);
+        this.$store.commit('SEARCH', this.search);
+      }
+    },
+    watch: {
+      search: function () {
+        this.searchAction();
       }
     }
   };
