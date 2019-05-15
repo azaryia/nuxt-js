@@ -16,7 +16,7 @@
         </div>
       </div>
     </div>
-    <div v-else-if="!loading && $route.params && $route.params.q">
+    <div v-else-if="!loading">
       <p>Aucun article est disponible</p>
     </div>
     <div v-else class="u-display-flex u-ai-center u-jc-center">
@@ -50,7 +50,8 @@
         loading: true,
         filter: null,
         title: 'Articles arc-en-ciel',
-        articles: []
+        articles: [],
+        errors: []
       }
     },
     head() {
@@ -78,6 +79,23 @@
             console.error(err);
             vm.loading = false;
           });
+      },
+      remove(article) {
+        let vm = this;
+
+        this.loading = true;
+
+        if (confirm('Voulez-vous vraiment supprimer cet article ' + article.title + '?  Cette action est irréversible.')) {
+          axios.delete(`/article/${article.id}`)
+            .then(() => {
+              vm.$router.push('admin');
+            })
+            .catch((err) => {
+              vm.errors.push(err);
+              console.error(err);
+              vm.loading = false;
+            })
+        }
       }
     },
     watch: {

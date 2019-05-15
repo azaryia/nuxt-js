@@ -16,7 +16,7 @@
         </div>
       </div>
     </div>
-    <div v-else-if="!loading && filter">
+    <div v-else-if="!loading">
       <p>Aucun article est disponible</p>
     </div>
     <div v-else class="u-display-flex u-ai-center u-jc-center">
@@ -49,6 +49,7 @@
       return {
         title: "Espace d'administration",
         articles: [],
+        errors: [],
         filter: null,
         loading: true
       }
@@ -88,6 +89,7 @@
           axios.delete(`/article/${article.id}`)
             .then(() => {
               location.reload();
+              vm.loading = false;
           })
             .catch((err) => {
               vm.errors.push(err);
@@ -100,7 +102,7 @@
     watch: {
       search: function (value) {
         this.filter = value;
-        this.filterArticles();
+        // this.filterArticles();
       }
     }
   };

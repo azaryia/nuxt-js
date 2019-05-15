@@ -1,5 +1,7 @@
-const state = {
-  search: ''
+const state = () => {
+  return {
+    search: ''
+  };
 };
 
 const mutations = {

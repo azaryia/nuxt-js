@@ -8,7 +8,7 @@
         </li>
       </ul>
     </div>
-    <div v-else-if="!loading && filter">
+    <div v-else-if="!loading">
       <p>Aucun article est disponible</p>
     </div>
     <div v-else class="u-display-flex u-ai-center u-jc-center">
@@ -71,7 +71,7 @@
     watch: {
       search: function (value) {
         this.filter = value;
-        this.filterArticles();
+        // this.filterArticles();
       }
     }
   };
