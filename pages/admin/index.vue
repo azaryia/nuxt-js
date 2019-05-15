@@ -1,13 +1,21 @@
 <template>
-  <div class="container">
-    <h2>{{title}}</h2>
-    <p><nuxt-link :to="{name: 'admin-edit'}">Créer un article</nuxt-link></p>
-    <ul v-if="!loading">
-      <li v-for="article in articles" :key="article.id">
-        <span>{{article.title}}</span> <nuxt-link :to="{name: 'admin-edit-id', params: {id: article.id}}" class="btn -theme-3 -format-small"><Icon name="edit" strokeWidth="2" size="small" ></Icon></nuxt-link>
+  <div>
+    <div class="d-flex justify-content-between u-content-width-xsmall">
+      <h2>{{title}}</h2>
+      <p><nuxt-link :to="{name: 'admin-edit'}" class="btn -theme-primary">Créer un article</nuxt-link></p>
+    </div>
+
+    <div v-if="!loading">
+      <div class="d-flex justify-content-between u-margin-vt-small u-content-width-xsmall" v-for="article in articles" :key="article.id">
+        <span>{{article.title}}</span>
+        <div>
+          <nuxt-link :to="{name: 'admin-edit-id', params: {id: article.id}}" class="btn -theme-3 -format-small u-margin-hz-small">
+            <Icon name="edit" strokeWidth="2" size="small" ></Icon>
+          </nuxt-link>
         <RbUButtonIcon class="btn--ghost -theme-1 -format-small" @click="remove(article)" iconSize="small" iconName="trash-2" iconStrokeWidth="2" />
-      </li>
-    </ul>
+        </div>
+      </div>
+    </div>
     <RbUSpinner v-else utils="u-margin-bottom-medium"></RbUSpinner>
   </div>
 </template>
@@ -42,9 +50,9 @@
     },
     head() {
       return {
-        title: 'Articles',
+        title: 'Rainbow Unicorn | Administration des articles',
         meta: [
-          { hid: 'description', name: 'description', content: 'Liste des articles à modifier' }
+          { hid: 'description', name: 'description', content: 'Administration des articles sur les licornes ! ' }
         ]
       }
     },

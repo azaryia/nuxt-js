@@ -1,6 +1,6 @@
 <template>
   <RbUInputWrapper>
-    <textarea v-model="model" :placeholder="placeholder" :disabled="disabled" :rows="rows" :cols="cols" :maxlength="maxLength" ref="ta"></textarea>
+    <textarea v-model="model" :placeholder="placeholder" :disabled="disabled" class="input rbutextarea" :rows="rows" :cols="cols" :maxlength="maxLength" ref="ta"></textarea>
   </RbUInputWrapper>
 </template>
 

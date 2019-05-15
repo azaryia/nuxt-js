@@ -324,6 +324,7 @@ $style-vars: addStyleVars($space-vt-extra);
 // Content widths
 // ==================================================================
 $content-widths: initVar('content-widths', (
+  xsmall : 70rem,
   small  : 90rem,
   default: 110rem
 ));
