@@ -17,18 +17,17 @@
         </li>
       </ul>
     </div>
-    <RbUForm @submit="searchAction" v-if="$route.params.q|| $route.name === 'admin' || $route.name === 'blog'">
+    <div v-if="$route.params.q|| $route.name === 'admin' || $route.name === 'blog'">
       <RbUToolbar class="u-display-flex">
-        <RbUIcon name="search" class="u-margin-right u-color-default-light"></RbUIcon>
+        <RbUIcon name="search" class="u-margin-right u-padding-top-small u-color-default-light" color="#ffffff" strokeWidth="3"></RbUIcon>
         <RbUInputText class="input--toolbar" type="search" placeholder="Recherche..." v-model="search" />
       </RbUToolbar>
-    </RbUForm>
+    </div>
   </nav>
 </template>
 
 <script>
-  import RbUButtonIcon from "~/components/ButtonIcon.vue"
-  import RbUForm from "~/components/Form.vue";
+  import RbUButtonIcon from "~/components/ButtonIcon.vue";
   import RbUIcon from "~/components/Icon.vue";
   import RbUInputText from "~/components/InputText.vue";
   import RbUToolbar from "~/components/Toolbar.vue";
@@ -37,7 +36,6 @@
     name: 'NavBar',
     components: {
       RbUButtonIcon,
-      RbUForm,
       RbUIcon,
       RbUInputText,
       RbUToolbar

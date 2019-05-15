@@ -1,7 +1,7 @@
 <template>
   <div>
     <nuxt-link :to="{name: 'blog'}">
-      <button class="btn -theme-default"><Icon name="chevron-left" strokeWidth="2" size="medium" ></Icon></button>
+      <span class="btn--ghost -theme-default -format-small"><Icon name="chevron-left" strokeWidth="2" size="default"></Icon></span>
     </nuxt-link>
 
     <h2 class="u-padding-vt-medium">Article n° {{currentArticle.id}} - {{currentArticle.title}}</h2>

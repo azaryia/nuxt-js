@@ -1,10 +1,9 @@
 <template>
   <div>
     <nuxt-link :to="{name: 'admin'}">
-      <span class="btn--ghost -theme-default "><Icon name="chevron-left" strokeWidth="2" size="medium" ></Icon></span>
-      <br> <br>
+      <span class="btn--ghost -theme-default -format-small"><Icon name="chevron-left" strokeWidth="2" size="default"></Icon></span>
     </nuxt-link>
-    <h2>{{currentArticle ? `Modier l'article ${currentArticle.title}` : 'Nouvel article'}}</h2>
+    <h2 class="u-padding-top-medium">{{currentArticle ? `Modier l'article ${currentArticle.title}` : 'Nouvel article'}}</h2>
     <RbUForm @submit="addArticle">
       <RbUField label="Titre">
         <RbUInputText v-model="article.title" required />
@@ -67,7 +66,7 @@
         }
 
         axios[method](action, this.article)
-          .then((Response) => {
+          .then(() => {
             this.$router.back();
           })
           .catch((err) => {
