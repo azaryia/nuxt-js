@@ -12,11 +12,11 @@
           <nuxt-link :to="{name: 'admin-edit-id', params: {id: article.id}}" class="btn -theme-3 -format-small u-margin-hz-small">
             <Icon name="edit" strokeWidth="2" size="small" ></Icon>
           </nuxt-link>
-        <RbUButtonIcon class="btn--ghost -theme-1 -format-small" @click="remove(article)" iconSize="small" iconName="trash-2" iconStrokeWidth="2" />
+          <RbUButtonIcon class="btn--ghost -theme-1 -format-small" @click="remove(article)" iconSize="small" iconName="trash-2" iconStrokeWidth="2" />
         </div>
       </div>
     </div>
-    <div v-else-if="!loading && filter">
+    <div v-else-if="!loading && $route.params && $route.params.q">
       <p>Aucun article est disponible</p>
     </div>
     <div v-else class="u-display-flex u-ai-center u-jc-center">
@@ -38,8 +38,8 @@
       RbUSpinner,
       Icon
     },
-    async asyncData() {
-      const { data } = await axios.get('/article');
+    async asyncData({params}) {
+      const { data } = await axios.get(`article?q=${params.q}`);
       return {
         articles: data,
         loading: false
@@ -47,17 +47,17 @@
     },
     data() {
       return {
-        title: "Espace d'administration",
-        articles: [],
+        loading: true,
         filter: null,
-        loading: true
+        title: 'Articles arc-en-ciel',
+        articles: []
       }
     },
     head() {
       return {
-        title: 'Rainbow Unicorn | Administration des articles',
+        title: `Rainbow Unicorn | Résultats pour ${this.$route.params.q}`,
         meta: [
-          { hid: 'description', name: 'description', content: 'Administration des articles sur les licornes ! ' }
+          { hid: 'description', name: 'description', content: 'Le blog des licornes, sur les licornes, pour les licornes. Vive les paillettes'}
         ]
       }
     },
@@ -77,30 +77,13 @@
           .catch((err) => {
             console.error(err);
             vm.loading = false;
-        });
-      },
-      remove(article) {
-        let vm = this;
-
-        this.loading = true;
-
-        if (confirm('Voulez-vous vraiment supprimer cet article ' + article.title + '?  Cette action est irréversible.')) {
-          axios.delete(`/article/${article.id}`)
-            .then(() => {
-              location.reload();
-          })
-            .catch((err) => {
-              vm.errors.push(err);
-              console.error(err);
-              vm.loading = false;
-            })
-        }
+          });
       }
     },
     watch: {
       search: function (value) {
         this.filter = value;
-        this.filterArticles();
+        // this.filterArticles();
       }
     }
   };

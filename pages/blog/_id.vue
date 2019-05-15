@@ -3,10 +3,9 @@
     <nuxt-link :to="{name: 'blog'}">
       <button class="btn -theme-default"><Icon name="chevron-left" strokeWidth="2" size="medium" ></Icon></button>
     </nuxt-link>
-    <br><br>
 
-    <h2>Article n° {{currentArticle.id}} - {{currentArticle.title}}</h2>
-    <p class="pre-formatted">{{currentArticle.text}}</p>
+    <h2 class="u-padding-vt-medium">Article n° {{currentArticle.id}} - {{currentArticle.title}}</h2>
+    <p>{{currentArticle.text}}</p>
   </div>
 </template>
 

@@ -5,7 +5,6 @@ const state = {
 const mutations = {
   SEARCH(state, search) {
     state.search = search;
-    console.log(state.search);
     return state.search
   }
 };

@@ -17,7 +17,7 @@
         </li>
       </ul>
     </div>
-    <RbUForm @submit="searchAction" v-if="$route.name === 'admin' || $route.name === 'blog'">
+    <RbUForm @submit="searchAction" v-if="$route.params.q|| $route.name === 'admin' || $route.name === 'blog'">
       <RbUToolbar class="u-display-flex">
         <RbUIcon name="search" class="u-margin-right u-color-default-light"></RbUIcon>
         <RbUInputText class="input--toolbar" type="search" placeholder="Recherche..." v-model="search" />
@@ -42,23 +42,33 @@
       RbUInputText,
       RbUToolbar
     },
-    data() {
+    data () {
       return {
         navBar: false,
         search: null
       }
     },
     methods: {
-      toggleNavBar() {
-        this.navBar  = !this.navBar;
+      toggleNavBar () {
+        this.navBar = !this.navBar;
       },
-      searchAction() {
+      searchAction () {
         this.$store.commit('SEARCH', this.search);
       }
     },
     watch: {
-      search: function () {
-        this.searchAction();
+      search: function () {;
+        let routeName = this.$route.name;
+        if (this.search && this.search.length) {
+          if (!this.$route.params.q) {
+            routeName += '-search-q';
+          }
+          this.searchAction();
+          this.$router.push({name: routeName, params: {q: this.search}});
+        }
+        else {
+          this.$router.push({name: routeName.replace('-search-q', '')});
+        }
       }
     }
   };
