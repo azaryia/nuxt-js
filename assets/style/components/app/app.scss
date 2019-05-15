@@ -9,10 +9,11 @@
 // ==================================================================
 // COMPONENT
 // ==================================================================
-.app {
+.app, #__nuxt {
   display: flex;
   flex-direction: column;
   position: relative;
+  background-color: var(--color-background);
   width: 100%;
   height: 100%;
 }
