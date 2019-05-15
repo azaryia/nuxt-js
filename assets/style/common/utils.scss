@@ -154,6 +154,10 @@ $size-percentages: map_merge($percentages, $percentages-additional-values);
   overflow: hidden;
 }
 
+.u-text-pre-wrap {
+  white-space: pre-wrap;
+}
+
 .u-text-nowrap {
   white-space: nowrap;
 }

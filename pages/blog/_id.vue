@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="u-content-width-xsmall">
     <nuxt-link :to="{name: 'blog'}">
       <span class="btn--ghost -theme-default -format-small"><Icon name="chevron-left" strokeWidth="2" size="default"></Icon></span>
     </nuxt-link>
 
     <h2 class="u-padding-vt-medium">Article n° {{currentArticle.id}} - {{currentArticle.title}}</h2>
-    <p>{{currentArticle.text}}</p>
+    <p class="u-text-pre-wrap">{{currentArticle.text}}</p>
   </div>
 </template>
 
