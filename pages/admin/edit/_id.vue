@@ -25,9 +25,9 @@
     },
     head() {
       return {
-        title: `Modier l'article ${this.article.title}`,
+        title: `Rainbow Unicorn | Editer l'article ${this.article.title}`,
         meta: [
-          { hid: 'description', name: 'description', content: `Modification de l\'article ${this.article.title} pour notre blog "Rainbow Unicorn"` }
+          { hid: 'description', name: 'description', content: `Edition de l\'article ${this.article.title} sur les licornes` }
         ]
       }
     }

@@ -48,9 +48,9 @@
     },
     head() {
       return {
-        title: 'Articles',
+        title: 'Rainbow Unicorn | Administration des articles',
         meta: [
-          { hid: 'description', name: 'description', content: 'Liste des articles à modifier' }
+          { hid: 'description', name: 'description', content: 'Administration des articles sur les licornes ! ' }
         ]
       }
     },

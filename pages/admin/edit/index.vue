@@ -11,9 +11,9 @@
     },
     head() {
       return {
-        title: `Nouveau article`,
+        title: `Rainbow Unicorn | Nouvel article`,
         meta: [
-          { hid: 'description', name: 'description', content: 'Création d\'un nouvel article pour notre superbe blog "RainBow Unicorn"' }
+          { hid: 'description', name: 'description', content: 'Création d\'un nouvel article sur les licornes.' }
         ]
       }
     }

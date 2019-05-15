@@ -31,7 +31,7 @@
     },
     head() {
       return {
-        title: `Article ${this.currentArticle.title}`,
+        title: `Rainbow Unicorn | ${this.currentArticle.title}`,
         meta: [
           { hid: 'description', name: 'description', content: this.currentArticle.text }
         ]

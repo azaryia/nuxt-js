@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
     <h2>{{title}}</h2>
     <ul>
       <li v-for="article in articles" :key="article.id">
@@ -21,15 +21,15 @@
     },
     data() {
       return {
-        title: 'My Articles',
+        title: 'Articles arc-en-ciel',
         articles: []
       }
     },
     head() {
       return {
-        title: 'Articles',
+        title: 'Rainbow Unicorn | Le blog des licornes, sur les licornes, pour les licornes',
         meta: [
-          { hid: 'description', name: 'description', content: 'Pour les passionnés des licornes "Arc-en-ciel", venez décourvir notre superbe blog "Rainbow Unicorne" rempli de pailletes'}
+          { hid: 'description', name: 'description', content: 'Le blog des licornes, sur les licornes, pour les licornes. Vive les paillettes'}
         ]
       }
     }
