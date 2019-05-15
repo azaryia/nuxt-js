@@ -25,6 +25,7 @@
   import RbUButtonIcon from "~/components/ButtonIcon";
   import RbUSpinner from "~/components/Spinner"
   import Icon from "~/components/Icon";
+  import { mapGetters } from "vuex";
 
   export default {
     components: {
@@ -43,6 +44,7 @@
       return {
         title: "Ecran d'administration",
         articles: [],
+        filter: null,
         loading: true
       }
     },
@@ -54,7 +56,24 @@
         ]
       }
     },
+    computed: mapGetters({
+      search: 'search'
+    }),
     methods: {
+      filterArticles() {
+        let vm = this;
+        this.loading = true;
+        axios.get(`/article?q=${this.filter}`)
+          .then((result) => {
+            vm.articles = [];
+            vm.articles = result.data;
+            vm.loading = false;
+          })
+          .catch((err) => {
+            console.error(err);
+            vm.loading = false;
+        });
+      },
       remove(article) {
         let vm = this;
 
@@ -71,6 +90,12 @@
               vm.loading = false;
             })
         }
+      }
+    },
+    watch: {
+      search: function (value) {
+        this.filter = value;
+        this.filterArticles();
       }
     }
   };

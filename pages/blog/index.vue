@@ -11,6 +11,7 @@
 
 <script>
   import axios from "~/plugins/axios";
+  import { mapGetters } from "vuex";
 
   export default {
     async asyncData() {
@@ -21,6 +22,7 @@
     },
     data() {
       return {
+        filter: null,
         title: 'Articles arc-en-ciel',
         articles: []
       }
@@ -31,6 +33,31 @@
         meta: [
           { hid: 'description', name: 'description', content: 'Le blog des licornes, sur les licornes, pour les licornes. Vive les paillettes'}
         ]
+      }
+    },
+    computed: mapGetters({
+      search: 'search'
+    }),
+    methods: {
+      filterArticles() {
+        let vm = this;
+        this.loading = true;
+        axios.get(`/article?q=${this.filter}`)
+          .then((result) => {
+            vm.articles = [];
+            vm.articles = result.data;
+            vm.loading = false;
+          })
+          .catch((err) => {
+            console.error(err);
+            vm.loading = false;
+          });
+      }
+    },
+    watch: {
+      search: function (value) {
+        this.filter = value;
+        this.filterArticles();
       }
     }
   };
