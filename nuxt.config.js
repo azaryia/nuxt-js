@@ -65,7 +65,14 @@ export default {
     routes: [
       '/blog/1',
       '/blog/2',
-      '/blog/3'
+      '/blog/3',
+      '/blog/4',
+      '/blog/5',
+      '/admin/edit/1',
+      '/admin/edit/2',
+      '/admin/edit/3',
+      '/admin/edit/4',
+      '/admin/edit/5'
     ]
 
   },
